@@ -119,7 +119,9 @@ Finally, at the bottom of the page random houses that are for sale/rent are disp
 
 #### 2.5 Is there a label or target associated with each instance? If so, please provide a description. 
 
-From each province in the Netherlands, we intend to scrape all corresponding municipalities. For the provinces an associated URL is for example 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/', which changes to 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/tilburg/' for Tilburg. So, each instance that we want to scrape corresponds to their own URL and site, in which we navigate to the municipalities URLs through each province URL.
+From each province in the Netherlands, we intend to scrape all corresponding municipalities. For the provinces an associated URL is for example 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/', which changes to 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/tilburg/' for Tilburg. So, each instance that we want to scrape corresponds to their own URL. 
+
+Moreover, within the code we wrote, we extracted the municipality or province name for each of these URLs, by scraping the title and removing the word 'Woningmarkt' from it. Therefore, we changed the official label to an artificial one for clarity purposes, e.g. now the municipality Tilburg can be identified through the label 'Tilburg', instead of 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/tilburg/'.
 
 #### 2.6 Is any information missing from individual instances? If so, provide a description, explaining why this information is missing (e.g., because it was unavailable). This does not include intentionally removed information, but might include, e.g. redacted text. 
 
@@ -127,7 +129,7 @@ For our purposes of scraping Huizenzoeker.nl, there is no information missing th
 
 #### 2.7 Are relationships between individual instances made explicit (e.g., user's movie ratings, social network links)? If so, please describe how these relationships are made explicit. 
 
-Yes, the municipalities are related to eachother by the province they are in. This is made explicit by the dataset by municipalities having the same value in the 'Province' column. 
+Yes, the municipalities are related to eachother by the province they are in. When running our code for all municipality URLs in a certain province, all information for every municipality within that province will be the output. The parent URL (province) and child URL (municipality) are **always** connected. This is explicitly visible in the URL names too. For every municipality, the municipality name in the link follows the province name. E.g. 'tilburg/' always follows 'noord-brabant/: 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/tilburg/'
 
 #### 2.8 Are there recommended data splits (e.g. training,development/validation, testing)? If so, please provide a description of these splits, explaining the rationale behind them. 
 
@@ -150,14 +152,15 @@ The paragraphs above simply clarify what the all variables entail, which ones be
 #### 2.9 Is the dataset self-contained, or does it link to or otherwise rely on external resources (e.g. websites, tweets, other datasets)? If it links to or relies on external resources: 
 #### a) are there guarantees that they will exist and remain constant over time; 
 
-Huizenzoeker.nl makes every effort to ensure that this website functions properly and to keep it permanently accessible. However, legally the site can not guarantee that the website is accessible or functions properly at all times. Huizenzoeker.nl edits the information offered on its site with the greatest possible care and devotes the same care to the composition of the site. However, it legally cannot guarantee the correctness and completeness of the data shown as a result of imperfections that may occur. 
+[Huizenzoeker.nl](https://www.huizenzoeker.nl/) states that, for over 10 years, they have made every effort possible to ensure that this website functions properly and is kept permanently accessible for reputational reasons. Huizenzoeker.nl edits the information offered on its site with the greatest possible care and devotes the same care to the composition of the site. However, it legally cannot guarantee the correctness and completeness of the data shown as a result of imperfections that may occur. Moreover, Huizenzoeker is able to adapt the website where and whenever they please. No restrictions hold. This information has been retrieved from the [disclaimer](https://www.huizenzoeker.nl/over-ons/disclaimer/) section on the officiel Huizenzoeker website.
 
-#### b) are there official arhival versions of the complete datasets (i.e. including the external resources as they existed at the time the dataset was created.
-Not sure... I don't think so... 
+#### b) are there official arhival versions of the complete datasets (i.e. including the external resources as they existed at the time the dataset was created).
+
+Possibly for own utilization. However, no official arcihval versions of the complete datasets are available to us as the public of [Huizenzoeker.nl](https://www.huizenzoeker.nl/).
 
 #### c) are there any restrictions (e.g., licenses, fees) associated with any of the external resources that might apply to a future user? Please provide descriptions of all external resources and any restrictions associated with them, as well as links or other access points, as appropriate.
 
-The external resources include [JAAP.nl](https://www.jaap.nl/) and [Huislijn.nl](https://www.huislijn.nl/), which also extract data from other sites such as [Funda.nl](https://www.funda.nl/). These sites are all available for free, so there are not any restrictions in the form of licenses and fees for future users. There is a premium part of Huizenzoeker.nl for which you do need to pay to access it, but we did not use the data on that part of the platform. 
+The external resources include [JAAP.nl](https://www.jaap.nl/) and [Huislijn.nl](https://www.huislijn.nl/), who in turn extract data from other sites such as [Funda.nl](https://www.funda.nl/). These sites are all available for free, thus, no restrictions are present in the form of licenses and fees for future users. There is a premium part of Huizenzoeker.nl for which you do need to pay to access it. For our project, the premium information was irrelevant. 
 
 #### 2.10 Does the dataset contain data that might be considered confidential (e.g. data that is protected by legal priviledge or by doctorpatient confidentiality, data that includes the content of individuals non-public communications)? If so, please provide a description. 
 No the data is not confidential as this information should be publically available. Therefore users do not have any rights to remove listings from the Huizenzoeker site, only if their house is no longer for sale/rent on JAAP.nl the listing will be removed. However, information about the house itself such as its value, year of construction, property size, will remain available and this is seen as public information that can not be removed. 
