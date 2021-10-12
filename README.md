@@ -121,7 +121,7 @@ Finally, at the bottom of the page random houses that are for sale/rent are disp
 
 From each province in the Netherlands, we intend to scrape all corresponding municipalities. For the provinces an associated URL is for example 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/', which changes to 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/tilburg/' for Tilburg. So, each instance that we want to scrape corresponds to their own URL. 
 
-Moreover, within the code we wrote, we extracted the municipality or province name for each of these URLs, by scraping the title and removing the word 'Woningmarkt' from it. Therefore, we changed the official label to an artificial one for clarity purposes, e.g. now the municipality Tilburg can be identified through the label 'Tilburg', instead of 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/tilburg/'.
+Moreover, within the code we wrote, we extracted the municipality or province name for each of these URLs, by scraping the title and removing the word 'Woningmarkt' from it. Therefore, we changed the official label to an artificial one for clarity purposes, e.g. now the municipality Tilburg can be identified through the label 'Tilburg', instead of its URL.
 
 #### 2.6 Is any information missing from individual instances? If so, provide a description, explaining why this information is missing (e.g., because it was unavailable). This does not include intentionally removed information, but might include, e.g. redacted text. 
 
@@ -160,12 +160,14 @@ Possibly for own utilization. However, no official arcihval versions of the comp
 
 #### c) are there any restrictions (e.g., licenses, fees) associated with any of the external resources that might apply to a future user? Please provide descriptions of all external resources and any restrictions associated with them, as well as links or other access points, as appropriate.
 
-The external resources include [JAAP.nl](https://www.jaap.nl/) and [Huislijn.nl](https://www.huislijn.nl/), who in turn extract data from other sites such as [Funda.nl](https://www.funda.nl/). These sites are all available for free, thus, no restrictions are present in the form of licenses and fees for future users. There is a premium part of Huizenzoeker.nl for which you do need to pay to access it. For our project, the premium information was irrelevant. 
+The external resources include [JAAP.nl](https://www.jaap.nl/) and [Huislijn.nl](https://www.huislijn.nl/), who in turn extract data from other sites such as [Funda.nl](https://www.funda.nl/). These sites are all available for free, thus, no restrictions are present in the form of licenses and fees for future users. There is a premium (under ['Abonnementen'](https://www.huizenzoeker.nl/woningmarkt-dashboard/))part of Huizenzoeker.nl for which you do need to pay to access it. For our project, the premium information was irrelevant. 
 
 #### 2.10 Does the dataset contain data that might be considered confidential (e.g. data that is protected by legal priviledge or by doctorpatient confidentiality, data that includes the content of individuals non-public communications)? If so, please provide a description. 
-No the data is not confidential as this information should be publically available. Therefore users do not have any rights to remove listings from the Huizenzoeker site, only if their house is no longer for sale/rent on JAAP.nl the listing will be removed. However, information about the house itself such as its value, year of construction, property size, will remain available and this is seen as public information that can not be removed. 
+
+No, the data is not confidential. Therefore users do not have any rights to remove listings from the Huizenzoeker site. Only if their house is no longer for sale/rent on JAAP.nl, their listing will be removed. However, information on the house itself such as its value, year of construction, property size, will remain available. This information is considered as public. 
 
 #### 2.11 Does the dataset contain data that, if viewed directly, might be offensive, insulting, threatening, or might otherwise cause anxiety? If so, please describe why. 
+
 No the data is not in any way offensive, insulting, or threatening. 
 
 #### 2.12 Does the dataset relate to people? If not, you may skip the remaining questions in this section. 
@@ -192,7 +194,13 @@ Not applicable.
 
 #### 3.1 How was the data associated with each instance acquired? Was the data directly observable (e.g., raw text, movie ratings), reported by subjects (e.g., survey responses), or indirectly inferred/derived from other data (e.g., part-of-speech tags, model-based guesses for age or language)? If data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how.
 
-Most of the data collected was directly observable from the huizenzoeker.nl/woningmarkt/ part of the platform. The 'woningmarkt' function shows for every municipality and province the average price, number of houses sold, average price per squared metre, percentage outbid, disposable income per household etc. 
+new answer:
+
+
+
+
+old answer:
+Most of the data collected was directly observable from the [Woningmarkt](huizenzoeker.nl/woningmarkt/) section on Huizenzoeker. The 'woningmarkt' function shows for every municipality and province the average price, number of houses sold, average price per squared metre, percentage outbid, disposable income per household etc. 
 
 #### 3.2 What mechanisms or procedures were used to collect the data (e.g., hardware apparatus or sensor, manual human curation, software program, software API)? How were these mechanisms or procedures validated?
 
