@@ -190,13 +190,11 @@ Not applicable.
 
 ### 3 Collection process 
 
-(I think it's a bit vague whether these questions are all about how we collected the data from the site, or how the site collected their data?)
-
 #### 3.1 How was the data associated with each instance acquired? Was the data directly observable (e.g., raw text, movie ratings), reported by subjects (e.g., survey responses), or indirectly inferred/derived from other data (e.g., part-of-speech tags, model-based guesses for age or language)? If data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how.
 
-Via the selenium package we accessed ChromeDriverManager. Using this webdriver we were eventually able to scrape all the possible municipality links for the entire Huizenzoeker website. 
+Via the selenium package we accessed ChromeDriverManager. Using this webdriver we were eventually able to scrape all the possible municipality links for the entire Huizenzoeker website. At first, we wanted to work with BeautifulSoup only, as the package is user friendly and works quickly. Yet, despite the benefits, this package was only able to extract the municipality links for one province at the time, as opposed to all links for all 12 provinces at once. On the other hand, Selenium is designed to automate test for Web Applications, and made it possible for us to finish the job. 
 
-The next step was to extract all the variables desribed in question 2.8. One gigant code has been created for this step. At the beginning of this code, we made sure all the output got saved into a json file. Next, one big for-loop is created that will loop through all of the munucipality pages, making sure the code gets 5 seconds of sleep. Within the loop we load the BeautifulSoup package and define the first variable for identification purposes: the municipality name. These were all the steps that needed to be completed in order to scrape all the variables we wanted from the municipality pages. These variables have been created using many 'if' - 'else' statements, tailoring each variable to its corresponding html output that can be accessed when inspecting the municipality webpage. Furthermore, irrelevent characters/words have been dropped to make output  better understandable. At the bottom of the code all the variables are appended into a list.
+The next step was to extract all the variables desribed in question 2.8. One gigant code has been created for this step. At the beginning of this code, we made sure all the output got saved into a json file. Next, one big for-loop is created that will loop through all of the munucipality pages, making sure the code gets 5 seconds of sleep. Within the loop we loaded the BeautifulSoup package. This time, BeautifulSoup worked just fine for extracting the variables. And as BeautifulSoup is the simpler and quicker method, we chose to stick with this package at this step. Then we defined the first variable intended identification purposes: the municipality name. These were all the steps that needed to be completed in order to scrape all the variables we wanted from the municipality pages. These variables have been created using many 'if' - 'else' statements, tailoring each variable to its corresponding html output that can be accessed when inspecting the municipality webpage. Furthermore, irrelevent characters/words have been dropped to make output  better understandable. At the bottom of the code all the variables are appended into a list.
 
 Using the 'pandas' package we were able to convert this list with variables into a large table (dataframe) containing all variables per municipality. This dataframe, in turn, is converted into a csv file. 
 
@@ -208,7 +206,9 @@ All the data we scraped from the Huizenzoeker platform was data that was directl
 
 #### 3.2 What mechanisms or procedures were used to collect the data (e.g., hardware apparatus or sensor, manual human curation, software program, software API)? How were these mechanisms or procedures validated?
 
-We scraped the data using Python's programming software in Jupyter Notebooks, using different packages such as BeautifulSoup and Selenium. Huizenzoeker.nl does not provide an official software API, so we scraped the data by writing code ourselves.
+We scraped the data using Python's programming software in Jupyter Notebooks. By loading the packages BeautifulSoup, Selenium, requests, re, pandas, time, webdriver manager, and json, we were able to use functions allowing for our specific webscraping steps.
+
+Huizenzoeker.nl does not provide an official software API (anymore), so we scraped the data by writing code ourselves.
 
 #### 3.3 If the dataset is a sample from a larger set, what was the sampling strategy (e.g., deterministic, probabilistic with specific sampling probabilities)?
 
