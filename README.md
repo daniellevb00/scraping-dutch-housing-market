@@ -93,7 +93,21 @@ Yes, the municipalities are related to eachother by the province they are in. Th
 
 #### 2.8 Are there recommended data splits (e.g. training,development/validation, testing)? If so, please provide a description of these splits, explaining the rationale behind them. 
 
-...
+The data that is present on every province and municipality page has a similar structure. Due to this structure we were able to split the data into multiple variables. This is recommended as it allows for quicker comparing and interpreting of certain statistics among provinces and among municipalities.
+
+Within the first split the average selling price of a house is extracted for every page. Additionally, the percentual difference of this average price compared to the last month is extracted. These numbers allow for comparing in which municipalities the most expensive/cheap houses are located on average, and in which municipalities the growth in price is the deepest/slowest.
+
+Furthermore, we have split the data to obtain the number of houses sold within a month. Next to that, the percentual difference in this number compared to the month before has been added as well. This data is relevent as it indicates which municipalities are most popular among the population of the Netherlands, and which municipalities are becoming more and more popular by cause of large growth in house sales. In the future, it might me relevant to expand this project to find out why these regions sell the most houses. Is the price the lowest? Are the overall home features superior? 
+
+Next up, we split the average price per square metre for every municipality into a variable. And again, another number indicating the percentual difference compared to last month is included.  These numbers are important, as this information contains a measure of price relative to a certain size. It can be difficult to compare value-for-money by just looking at the absolute average selling price of a house. Certain houses are larger, and thus, are sold for a higher price. Within the average selling price per square metre we control for this issue.
+
+The next split represents a percentual number on how much is overbid per municipality on average. Again, the percentual difference of this number compared to the month before is included. This number is important as it indicates in which regions buyers are willing to pay the highest 'extra' amount of money for a house. This might translate in where the competition for a house is the highest on average or how bad buyers want to be secure to attain the house. 
+
+Furthermore, we scraped and split the average disposable income per municipality into a variable as well. The average disposable income is an important measure as it tells us how much inhabitants of a certain municipality are able to spend on a house. Thus, to match supply to demand, this variable might have an impact on the level of housing prices. 
+
+Lastly, several measures in number of inhabitants have been split off. Firstly, the number of inhabitants. Secondly, the percentual number of inhabitant growth over the past year if applicable. And thirdly, if the population growth is not applicable, a percentual number of inhabitant decline is included. 
+
+Within the jupyter script, all the above-mentioned variables have been included into one table. We chose to display everything together to make all the information quickly accessible. TO BE CONINUED!!!!
 
 #### 2.9 Is the dataset self-contained, or does it link to or otherwise rely on external resources (e.g. websites, tweets, other datasets)? If it links to or relies on external resources: 
 #### a) are there guarantees that they will exist and remain constant over time; 
