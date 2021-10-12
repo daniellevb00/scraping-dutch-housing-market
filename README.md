@@ -212,15 +212,17 @@ Huizenzoeker.nl does not provide an official software API (anymore), so we scrap
 
 #### 3.3 If the dataset is a sample from a larger set, what was the sampling strategy (e.g., deterministic, probabilistic with specific sampling probabilities)?
 
-The dataset is from a larger set in the sense that the data (such as the outbid percentage) available on the Huizenzoeker.nl site is averaged across provinces and municipalities. However, we did not intend to create a sample set, since we scraped all municipaplity data (i.e., 351 municipalities in total) from each province in the Netherlands (i.e., 12 provinces in total).
+Technically, we have taken the entire population, and no sample, to conduct our project with. We took all the municipality pages as input, an not a portion of them.
+
+Yet, logically, we have taken a sample. Namely, a single unit would represent a single house in logical terms. However, as the statistics we were after were only available on an average-level on the municipality pages, we took the municipality pages as single units. A municipality page consists of average numbers from all the single houses present in that region. Thus, that is the sampling strategy applied. 
 
 #### 3.4 Who was involved in the data collection process (e.g., students, crowdworkers, contractors) and how were they compensated (e.g., how much were crowdworkers paid)?
 
-In the data collection process merely the team members of this project were involved.
+In the data collection process solely the team members of this project were involved.
 
 #### 3.5 Over what timeframe was the data collected? Does this timeframe match the creation timeframe of the data associated with the instances (e.g., recent crawl of old news articles)? If not, please describe the time-frame in which the data associated with the instances was created.
 
-Huizenzoeker.nl covers the housing market data of September 2021. This is the most recent housing market data. Huizenzoeker.nl shows this most-recent data because the housing market changes every month (e.g., houses are sold, new houses are offered, the asking price may be more extremely outbid in one month than in the other month, etc.).
+Huizenzoeker.nl covers the housing market data of October 2021. This is the most recent housing market data. Huizenzoeker.nl shows this most-recent data because the housing market changes every month (e.g., houses are sold, new houses are offered, the asking price may be more extremely outbid in one month than in the other month, etc.).
 
 #### 3.6 Were any ethical review processes conducted (e.g., by an institutional review board)? If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation.
 
@@ -252,39 +254,49 @@ Not appliable.
 
 ### 4 Preprocessing, cleaning, labeling 
 
-#### 4.1 Was any preprocessing/cleaning/labeling of the data done (e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)? If so, please provide a description. If not, you may skip the remain- der of the questions in this section. 
+#### 4.1 Was any preprocessing/cleaning/labeling of the data done (e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)? If so, please provide a description. If not, you may skip the remainder of the questions in this section. 
 
-...
+First of all, all the values of the variables have been cleaned in a way that they only give a certain numeric value or percentage as output (no additional words, and only consistent punctuation). When no numeric value exists for a specific municipality, we encoded that 'NA' will result as output for the variable in question. Furthermore, all the variables have been assigned a clear label, such that the numeric values are given a meaning. Additionally, all the variables have been displayed in a table against all the municipalities/provinces as a small start in preprocessing. 
+
+ARE WE GOING TO DO MORE DPREP FOR ODCM ?????
 
 #### 4.2 Was the “raw” data saved in addition to the preprocessed/cleaned/labeled data (e.g., to support unanticipated future uses)? If so, please provide a link or other access point to the “raw” data.
 
-I do not this was possible for our project as the data on the site is updated every month. 
+Yes. Raw output is being saved in a json file automatically, as part of our coding script. The json file can be accessed by running our Scraping Woningmarkt (Final Code) jupyter script. 
 
 #### 4.3 Is the software used to preprocess/clean/label the instances available? If so, please provide a link or other access point.
 
-Python? Rstudio? 
+We solely used Python and RStudio.
+
+MIS IK IETS HIER????? 
 
 ### 5 Uses
 
 #### 5.1 Has the dataset been used for any tasks already? If so, please provide a description. 
 
-We used our dataset in RStudio to create some plots and figures of the data we collected; to give insights into how we would compare the municipalities for each province, and the data between the provinces. 
+We used our dataset in RStudio to create some plots and figures of the data we collected. We did this to give insights into how we would compare the municipalities for each province, and the data between the provinces. 
 
 #### 5.2 Is there a repository that links to any or all papers or systems that use the dataset? If so, please provide a link or other access point.
 
-This repository? 
+This repository.
+
+MOETEN WE DIT NOG DOEN????
 
 #### 5.3 What (other) tasks could the dataset be used for?
 
-Helping users find the best municipality for them to live in (where they will have the highest chance of succeeding to find a house), to help them in negotiations on the price, and to help them find out what is the norm in terms of overbidding for each municipality. 
+Boradly speaking, a suitable task this dataset can be used for is helping (future) inhabitants of the Netherlands find their ideal home. By accessing our data, a person could find the best municipality to live in for this person's specific circumstances (e.g. specific disposable income level), find a region where the value-for-money seems to be of high standard, to help them in negotiations on the price, to help them find out what is the norm in terms of overbidding for each municipality, and more.
 
 #### 5.4 Is there anything about the composition of the dataset or the way it was collected and preprocessed/cleaned/labeled that might impact future uses? For example, is there anything that a future user might need to know to avoid uses that could result in unfair treatment of individuals or groups (e.g., stereotyping, quality of service issues) or other undesirable harms (e.g., financial harms, legal risks) If so, please provide a description. Is there anything a future user could do to mitigate these undesirable harms?
 
-...
+The only harms that could be done in the case of Huizenzoeker relates to financial harms, e.g. when one is misinformed about housing prices due to our dataset. 
+
+However, as long as Huizenzoeker does not incur dractic changes, no undesirable harms will arise. 
+
+Future users of the dataset could decide to implement more variables, or kick certain variables out. As long as this is done following the same steps as in our coding script, no harm can be done. 
 
 #### 5.5 Are there tasks for which the dataset should not be used? If so, please provide a description.
 
-...
+The dataset can be used for any matters regarding the housing market in the Netherlands. For anything outside of this topic, the dataset has no use.
 
 
 
