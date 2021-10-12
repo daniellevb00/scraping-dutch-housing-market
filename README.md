@@ -1,4 +1,4 @@
-# Scraping Huizenzoeker.nl to analyse the Dutch Housing Market 
+# Scraping Huizenzoeker.nl to Analyse the Dutch Housing Market 
 
 __Which places in the Netherlands are hit hardest by the Dutch Housing crisis, and which the least?__
 
