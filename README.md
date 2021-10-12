@@ -89,11 +89,25 @@ Total = 352 municipalities.
 
 #### 2.3 Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set? If the dataset is a sample, then what is the larger set? Is the sample representative of the larger set (e.g., geographic coverage)? If so, please describe how this representativeness was validated/verified. If it is not representative of the larger set, please describe why not (e.g. to cover a more diverse range of instances, because instances were withheld or unavailable). 
 
-It is a sample in the sense that all listings are included but as averages of their municipality. Therefore it is certainly representative of the larger set as it covers the whole country. 
+It is a sample in the sense that all house-listings in the Netherlands are included (which is the full population), but are grouped and displayed as averages of their municipality. As every listing is located in a municipality, the sample is certainly representative of the larger set. Thus, our sample knows full geographic coverage. 
 
 #### 2.4 What data does each instance consist of? 'Raw' data (e.g. unprocessed text or images) or features? In either case, please provide a description. 
 
-Each instance contains a 'number of trends' page, which provides data such as the trends in average asking price and outbid percentage. The page also covers figures such as histograms that show price trends and a pie chart that shows the average age distribution in the province or municipality.
+To clarify, each province, or instance, knows its own page, but next to that, also is the parent of several municipality pages (as described in question 2.2). However, the structure of this province and municipality page are almost identical. For this question, illustration is based on one of the municipality pages, Tilburg (Noord-Brabant).
+
+First, all pages display a map of the Netherlands and their specific location on the map. Next, all contain a link to all the houses that are for sale followed by a link for all houses that are for rent. Furthermore, a subsequent link directs to themost expensive houses of the munucipality/province in question. 
+
+<img width="952" alt="Screenshot 2021-10-12 at 12 24 53" src="https://user-images.githubusercontent.com/90346612/136939007-d8b99988-5057-4bc2-ab8f-0d8e9c7d262a.png">
+
+Next, each page displays 4 'trend' statistics. Each of the 4 numbers contains a related percentual number, reflecting the percentual difference of the statistic compared to the month before. The first trend refers to the average selling price of a house within the municipality/province. The second trend refers to the number of houses sold in the past month. The third trend refelcts the average selling price per squared meter. And the fourth trend indicates what the average outbidding percentage is within the municipality/province in question. 
+
+<img width="584" alt="Screenshot 2021-10-12 at 12 27 31" src="https://user-images.githubusercontent.com/90346612/136939330-9f742c7a-599a-4292-93e6-ec4dd43d66ab.png">
+
+
+The page also covers figures such as histograms that show price trends and a pie chart that shows the average age distribution in the province or municipality.
+
+Lastly, all pages
+
 
 #### 2.5 Is there a label or target associated with each instance? If so, please provide a description. 
 
@@ -111,13 +125,13 @@ Yes, the municipalities are related to eachother by the province they are in. Th
 
 The data that is present on every province and municipality page has a similar structure. Due to this structure we were able to split the data into multiple variables. This is recommended as it allows for quicker comparing and interpreting of certain statistics among provinces and among municipalities.
 
-Within the first split the average selling price of a house is extracted for every page. Additionally, the percentual difference of this average price compared to the last month is extracted. These numbers allow for comparing in which municipalities the most expensive/cheap houses are located on average, and in which municipalities the growth in price is the deepest/slowest.
+The first variable we split off is the average selling price of a house for every page. Additionally, the percentual difference of this average price compared to the last month is extracted. These numbers allow for comparing in which municipalities the most expensive/cheap houses are located on average, and in which municipalities the growth in price is the deepest/slowest.
 
-Furthermore, we have split the data to obtain the number of houses sold within a month. Next to that, the percentual difference in this number compared to the month before has been added as well. This data is relevent as it indicates which municipalities are most popular among the population of the Netherlands, and which municipalities are becoming more and more popular by cause of large growth in house sales. In the future, it might me relevant to expand this project to find out why these regions sell the most houses. Is the price the lowest? Are the overall home features superior? 
+Furthermore, the next variable is the number of houses sold within a month. Next to that, the percentual difference in this number compared to the month before has been added as well. This data is relevent as it indicates which municipalities are most popular among the population of the Netherlands, and which municipalities are becoming more and more popular by cause of large growth in house sales. In the future, it might me relevant to expand this project to find out why these regions sell the most houses. Is the price the lowest? Are the overall home features superior? 
 
-Next up, we split the average price per square metre for every municipality into a variable. And again, another number indicating the percentual difference compared to last month is included.  These numbers are important, as this information contains a measure of price relative to a certain size. It can be difficult to compare value-for-money by just looking at the absolute average selling price of a house. Certain houses are larger, and thus, are sold for a higher price. Within the average selling price per square metre we control for this issue.
+Next up, we split the average price per square meter for every municipality into a variable. And again, another number indicating the percentual difference compared to last month is included.  These numbers are important, as this information contains a measure of price relative to a certain size. It can be difficult to compare value-for-money by just looking at the absolute average selling price of a house. Certain houses are larger, and thus, are sold for a higher price. Within the average selling price per square metre we control for this issue.
 
-The next split represents a percentual number on how much is overbid per municipality on average. Again, the percentual difference of this number compared to the month before is included. This number is important as it indicates in which regions buyers are willing to pay the highest 'extra' amount of money for a house. This might translate in where the competition for a house is the highest on average or how bad buyers want to be secure to attain the house. 
+The next split represents a percentual number on how much is outbid per municipality on average. Again, the percentual difference of this number compared to the month before is included. This number is important as it indicates in which regions buyers are willing to pay the highest 'extra' amount of money for a house. This might translate in where the competition for a house is the highest on average or how bad buyers want to be secure to attain the house. 
 
 Furthermore, we scraped and split the average disposable income per municipality into a variable as well. The average disposable income is an important measure as it tells us how much inhabitants of a certain municipality are able to spend on a house. Thus, to match supply to demand, this variable might have an impact on the level of housing prices. 
 
