@@ -64,7 +64,7 @@ The following screenshots represent a brief navigation path:
 
 <img width="1440" alt="Screenshot 2021-10-12 at 11 11 44" src="https://user-images.githubusercontent.com/90346612/136928426-035806a6-3463-43d5-9679-d50e31fcb37d.png">
 
-3. This is an example of a municipality page within the province Noord-Brabant. This particular one considers the municipality Tilburg.
+3. This is an example of a municipality page within the province Noord-Brabant. This particular one considers the municipality Tilburg. Notice how the url got extended with 'tilburg/'.
 
 <img width="1437" alt="Screenshot 2021-10-12 at 11 12 02" src="https://user-images.githubusercontent.com/90346612/136928508-388a21c2-885b-4ea7-9a8b-4deb02a84c7e.png">
 
