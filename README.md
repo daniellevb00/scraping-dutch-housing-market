@@ -99,12 +99,19 @@ First, all pages display a map of the Netherlands and their specific location on
 
 <img width="952" alt="Screenshot 2021-10-12 at 12 24 53" src="https://user-images.githubusercontent.com/90346612/136939007-d8b99988-5057-4bc2-ab8f-0d8e9c7d262a.png">
 
-Next, each page displays 4 'trend' statistics. Each of the 4 numbers contains a related percentual number, reflecting the percentual difference of the statistic compared to the month before. The first trend refers to the average selling price of a house within the municipality/province. The second trend refers to the number of houses sold in the past month. The third trend refelcts the average selling price per squared meter. And the fourth trend indicates what the average outbidding percentage is within the municipality/province in question. 
+Next, each page displays 4 'trend' statistics. Each of the 4 numbers contains a related percentual number, reflecting the percentual difference of the statistic compared to the month before. The first trend refers to the average selling price of a house within the municipality/province. The second trend refers to the number of houses sold in the past month. The third trend refelcts the average selling price per squared meter. And the fourth trend indicates what the average outbidding percentage is within the municipality/province in question. These trends will be of high importance during our project.
 
 <img width="584" alt="Screenshot 2021-10-12 at 12 27 31" src="https://user-images.githubusercontent.com/90346612/136939330-9f742c7a-599a-4292-93e6-ec4dd43d66ab.png">
 
+Moreover, all pages cover histograms that show price and housing supply trends. Additionally, a link is included to access more information about the housing market in question.
 
-The page also covers figures such as histograms that show price trends and a pie chart that shows the average age distribution in the province or municipality.
+<img width="591" alt="Screenshot 2021-10-12 at 12 35 16" src="https://user-images.githubusercontent.com/90346612/136940387-2b280819-d4e4-49e2-99ed-f7545e79eafe.png">
+
+Next, a section is shown in which several questions are answered. The first questions, cover the exact same as the first 4 trend statistics. However, the last ones cover the population number and population growth/decline compared to the year before. This population-related information, again, will be of high relevance later in our project. 
+
+<img width="570" alt="Screenshot 2021-10-12 at 12 36 56" src="https://user-images.githubusercontent.com/90346612/136940621-9fc2e4d0-7f6c-4afb-a07e-96fd890118fc.png">
+
+a pie chart that shows the average age distribution in the province or municipality.
 
 Lastly, all pages
 
