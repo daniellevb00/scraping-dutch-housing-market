@@ -43,7 +43,7 @@ As the seriousness of the housing crisis and the shortage of listings differs ac
 
 #### 1.2 Who created this dataset (e.g. which team, research group) and on behalf of which entity (e.g., company, institution, organization)?
 
-Huizenzoeker.nl is an independent platform which is not influenced or moderated by estate agents, as it aims to inform its clients in a honest manner with reliable information. It is perceived as an aggregate site which collects information from public different sources, such as JAAP.nl. However, as Huizenzoeker.nl is owned by Spotzi, a big data visualizations specialist that focuses on the visualizing and analysing of spatial data, The Huizenzoeker team also provides much data themselves. From Spotzi, they retrieve much data on, for example, the value of the listings and development of housing prices. This is beneficial to our scraping project as this resulted in longs lists of information present for each listing, municipality, province etc. Therefore, it does not only provide specifics on the houses themselves like every other site, but also on the neighbourhood, the mean income in the municipality, and the distance to the closest supermarket. The platform states that it is a partner of JAAP.nl and Huislijn.nl, however it does not have explicit consent from JAAP.NL to show all information that is displayed on JAAP.nl (which seems quite contradictionary). These databanks also get their data from other sites, such as Funda.nl.  
+Huizenzoeker.nl is an independent platform which is not influenced or moderated by estate agents, as it aims to inform its clients in a honest manner with reliable information. It is perceived as an aggregate site which collects information from public different sources, such as JAAP.nl. However, as Huizenzoeker.nl is owned by Spotzi, a big data visualizations specialist that focuses on the visualizing and analysing of spatial data, The Huizenzoeker team also provides much data themselves. From Spotzi, they retrieve much data on, for example, the value of the listings and development of housing prices. This is beneficial to our scraping project as this resulted in longs lists of information present for each listing, municipality, province etc. Therefore, it does not only provide specifics on the houses themselves like every other site, but also on the neighbourhood, the mean income in the municipality, the distance to the closest supermarket, etc. The platform states that it is a partner of JAAP.nl and Huislijn.nl, however it does not have explicit consent from JAAP.NL to show all information that is displayed on JAAP.nl (which seems quite contradictionary). In turn, databanks like JAAP.nl get their data from other sites, such as Funda.nl.  
 
 #### 1.3 Who funded the creation of the dataset? If there is an associated grant, please provide the name of the grantor and the grant name and number. 
 The dataset is funded by advertisers on the site. Advertisers can target vistors on the site through the filter options, which allows advertisers to target based on different home characteristics or on region and price range. As Spotzi created various profiles from the data they compiled, e.g. starters (young and ambitious), families with children (nest builder), kids away from home (thriving fifties); advertisers can target very specifically to a certain audience within a certain zip code. These profiles can also be used on external sites through the Rearch extension function. 
@@ -56,7 +56,7 @@ The instances that comprise the dataset represent houses. However, in our datase
 
 The following screenshots represent a brief navigation path:
 
-1. The homepage of [Huizenzoeker.nl](https://www.huizenzoeker.nl/). From here, one can scroll down to the 'Woningmarkt'-section and navigate to on of the province pages.
+1. The homepage of [Huizenzoeker.nl](https://www.huizenzoeker.nl/). From here, one can scroll down to the 'Woningmarkt'-section and navigate to one of the province pages.
 
 <img width="1434" alt="Screenshot 2021-10-12 at 11 11 32" src="https://user-images.githubusercontent.com/90346612/136928729-9d3855b9-4699-430e-abf7-2a1299c79af3.png">
 
@@ -68,7 +68,7 @@ The following screenshots represent a brief navigation path:
 
 <img width="1437" alt="Screenshot 2021-10-12 at 11 12 02" src="https://user-images.githubusercontent.com/90346612/136928508-388a21c2-885b-4ea7-9a8b-4deb02a84c7e.png">
 
-The goal of this project has been to scrape information per municipality (and later per province too). Therefore, pages like the ones displayed under step 2 and 3 have been utilized to obtain statistical housing-related measures per municipality (and province).
+The goal of this project has been to scrape information per municipality and per province (for completeness). Therefore, pages like the ones displayed under step 2 and 3 have been utilized to obtain statistical housing-related measures per municipality and province.
 
 #### 2.2 How many instances are there in total (of each type, if appropriate?)
 
