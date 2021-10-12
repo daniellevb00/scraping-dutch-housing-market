@@ -77,7 +77,7 @@ It is a sample in the sense that all listings are included but as averages of th
 
 #### 2.4 What data does each instance consist of? 'Raw' data (e.g. unprocessed text or images) or features? In either case, please provide a description. 
 
-...
+Each instance contains a 'number of trends' page, which provides data such as the trends in average asking price and outbid percentage. The page also covers figures such as histograms that show price trends and a pie chart that shows the average age distribution in the province or municipality.
 
 #### 2.5 Is there a label or target associated with each instance? If so, please provide a description. 
 
