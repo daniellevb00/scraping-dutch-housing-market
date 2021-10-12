@@ -81,17 +81,17 @@ Each instance contains a 'number of trends' page, which provides data such as th
 
 #### 2.5 Is there a label or target associated with each instance? If so, please provide a description. 
 
-...
+From each province in the Netherlands, we intend to scrape all corresponding municipalities. For the provinces an associated URL is for example 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/', which changes to 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/tilburg/' for Tilburg. So, each instance that we want to scrape corresponds to their own URL and site, in which we navigate to the municipalities URLs through each province URL.
 
 #### 2.6 Is any information missing from individual instances? If so, provide a description, explaining why this information is missing (e.g., because it was unavailable). This does not include intentionally removed information, but might include, e.g. redacted text. 
 
-...
+For our purposes of scraping Huizenzoeker.nl, there is no information missing that we wanted to include in our dataset.
 
 #### 2.7 Are relationships between individual instances made explicit (e.g., user's movie ratings, social network links)? If so, please describe how these relationships are made explicit. 
 
 Yes, the municipalities are related to eachother by the province they are in. This is made explicit by the dataset by municipalities having the same value in the 'Province' column. 
 
-#### 2.8 Are there recommended data splits (e.g. training,development/validation, testing)? If so, please provide a description of these splits, explaning the rationale behind them. 
+#### 2.8 Are there recommended data splits (e.g. training,development/validation, testing)? If so, please provide a description of these splits, explaining the rationale behind them. 
 
 ...
 
