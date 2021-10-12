@@ -107,7 +107,7 @@ Furthermore, we scraped and split the average disposable income per municipality
 
 Lastly, several measures in number of inhabitants have been split off. Firstly, the number of inhabitants. Secondly, the percentual number of inhabitant growth over the past year if applicable. And thirdly, if the population growth is not applicable, a percentual number of inhabitant decline is included. 
 
-Within the jupyter script, all the above-mentioned variables have been included into one table. We chose to display everything together to make all the information quickly accessible. TO BE CONINUED!!!!
+The paragraphs above simply clarify what the all variables entail, which ones belong together, and why they are important to include in our dataset. However, within the jupyter script, all the above-mentioned variables have been included into one table. We chose to display everything together to make all the information quickly accessible. We think it is no problem to consider all the variables into code like we do now because of the following reason. [Huizenzoeker.nl](https://www.huizenzoeker.nl/) updates its content each month automatically. The structure and the urls stay exactly the same, yet, the statistical numbers change per month. We designed our code in a way that it captures every number that is present at the moment, regardless of whether we run it in September versus October for example.
 
 #### 2.9 Is the dataset self-contained, or does it link to or otherwise rely on external resources (e.g. websites, tweets, other datasets)? If it links to or relies on external resources: 
 #### a) are there guarantees that they will exist and remain constant over time; 
@@ -133,7 +133,9 @@ Not applicable.
 
 #### 2.13 Does the dataset identify any subpopulations (e.g., by age, gender)? If so, please describe how these subpopulations are identified and provide a description of their respective distributions within the dataset. 
 
-Not applicable (only if we're able to scrape the detailed population data per municipality of a province). 
+Within out dataset we only scrape the number of inhabitants per municipality/province, and the average disposable income per municipality/province. Therefore, one subpopulation in terms of different levels of average disposable income can considered to be present. 
+
+LOOK FOR DISTRIBUTIONS FOR THIS SUBPOPULATION !!!!!  
 
 ##### 2.14 Is it possible to identify individuals (i.e., one or more natural persons), either directly or indirectly (i.e., in combination with other data) from the dataset? If so, please describe how. 
 
