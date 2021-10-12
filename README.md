@@ -54,7 +54,7 @@ The dataset is funded by advertisers on the site. Advertisers can target vistors
 
 The instances that comprise the dataset represent houses. However, in our dataset housing data is grouped at muncipality-level, where values represent the average number per municipality. In turn, all municipalities belong to a larger type of instance, the provinces. 
 
-![Uploading Screenshot 2021-10-12 at 11.11.32.png…]()
+<img width="1440" alt="Screenshot 2021-10-12 at 11 11 44" src="https://user-images.githubusercontent.com/90346612/136928426-035806a6-3463-43d5-9679-d50e31fcb37d.png">
 
 #### 2.2 How many instances are there in total (of each type, if appropriate?)
 
