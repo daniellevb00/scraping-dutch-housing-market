@@ -139,23 +139,23 @@ Most of the data collected was directly observable from the huizenzoeker.nl/woni
 
 #### 3.2 What mechanisms or procedures were used to collect the data (e.g., hardware apparatus or sensor, manual human curation, software program, software API)? How were these mechanisms or procedures validated?
 
-We scraped the data using Python's programming software in Jupyter Notebooks, using different packages such as BeautifulSoup and Selenium. 
+We scraped the data using Python's programming software in Jupyter Notebooks, using different packages such as BeautifulSoup and Selenium. Huizenzoeker.nl does not provide an official software API, so we scraped the data by writing code ourselves.
 
 #### 3.3 If the dataset is a sample from a larger set, what was the sampling strategy (e.g., deterministic, probabilistic with specific sampling probabilities)?
 
-...
+The dataset is from a larger set in the sense that the data (such as the outbid percentage) available on the Huizenzoeker.nl site is averaged across provinces and municipalities. However, we did not intend to create a sample set, since we scraped all municipaplity data (i.e., 351 municipalities in total) from each province in the Netherlands (i.e., 12 provinces in total).
 
 #### 3.4 Who was involved in the data collection process (e.g., students, crowdworkers, contractors) and how were they compensated (e.g., how much were crowdworkers paid)?
 
-...
+In the data collection process merely the team members of this project were involved.
 
-#### 3.5 Over what timeframe was the data collected? Does this timeframe match the creation timeframe of the data associated with the instances (e.g., recent crawl of old news articles)? If not, please describe the time- frame in which the data associated with the instances was created.
+#### 3.5 Over what timeframe was the data collected? Does this timeframe match the creation timeframe of the data associated with the instances (e.g., recent crawl of old news articles)? If not, please describe the time-frame in which the data associated with the instances was created.
 
-...
+Huizenzoeker.nl covers the housing market data of September 2021. This is the most recent housing market data. Huizenzoeker.nl shows this most-recent data because the housing market changes every month (e.g., houses are sold, new houses are offered, the asking price may be more extremely outbid in one month than in the other month, etc.).
 
 #### 3.6 Were any ethical review processes conducted (e.g., by an institutional review board)? If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation.
 
-...
+Not applicable.
 
 #### 3.7 Does the dataset relate to people? If not, you may skip the remaining questions in this section.
 
