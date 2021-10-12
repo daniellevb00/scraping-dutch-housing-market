@@ -52,7 +52,9 @@ The dataset is funded by advertisers on the site. Advertisers can target vistors
 
 #### 2.1 What do instances that comprise the dataset represent (e.g. documents, photos, people, countries)? Are there multiple types of in-stances (e.g. movies, users, ratings; people and interactions between them; nodes and edges)? Please provide a description. 
 
-The instances that comprise the dataset represent houses, however in our dataset their data is grouped at muncipality-level. All municipalities belong to a larger type of instance, the provinces. 
+The instances that comprise the dataset represent houses. However, in our dataset housing data is grouped at muncipality-level, where values represent the average number per municipality. In turn, all municipalities belong to a larger type of instance, the provinces. 
+
+![Uploading Screenshot 2021-10-12 at 11.11.32.png…]()
 
 #### 2.2 How many instances are there in total (of each type, if appropriate?)
 
