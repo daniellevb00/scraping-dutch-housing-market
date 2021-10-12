@@ -194,13 +194,17 @@ Not applicable.
 
 #### 3.1 How was the data associated with each instance acquired? Was the data directly observable (e.g., raw text, movie ratings), reported by subjects (e.g., survey responses), or indirectly inferred/derived from other data (e.g., part-of-speech tags, model-based guesses for age or language)? If data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how.
 
-new answer:
+Via the selenium package we accessed ChromeDriverManager. Using this webdriver we were eventually able to scrape all the possible municipality links for the entire Huizenzoeker website. 
 
+The next step was to extract all the variables desribed in question 2.8. One gigant code has been created for this step. At the beginning of this code, we made sure all the output got saved into a json file. Next, one big for-loop is created that will loop through all of the munucipality pages, making sure the code gets 5 seconds of sleep. Within the loop we load the BeautifulSoup package and define the first variable for identification purposes: the municipality name. These were all the steps that needed to be completed in order to scrape all the variables we wanted from the municipality pages. These variables have been created using many 'if' - 'else' statements, tailoring each variable to its corresponding html output that can be accessed when inspecting the municipality webpage. Furthermore, irrelevent characters/words have been dropped to make output  better understandable. At the bottom of the code all the variables are appended into a list.
 
+Using the 'pandas' package we were able to convert this list with variables into a large table (dataframe) containing all variables per municipality. This dataframe, in turn, is converted into a csv file. 
 
+To obtain summary statistics we did the following. As most variables were seen as characters, while they should have been numerics, we exported the final dataframe to R to change these datatypes. After that, we exported it again, but as a CSV, to then use it to generate some summary statistics: count, mean, std, min, max, 25%, 50%, 75%.
 
-old answer:
-Most of the data collected was directly observable from the [Woningmarkt](huizenzoeker.nl/woningmarkt/) section on Huizenzoeker. The 'woningmarkt' function shows for every municipality and province the average price, number of houses sold, average price per squared metre, percentage outbid, disposable income per household etc. 
+The last part of the jupyter script shows how the same steps as described above are used to scrape the URLs on province level, as opposed to municipality level.
+
+All the data we scraped from the Huizenzoeker platform was data that was directly observable in the form of raw text.
 
 #### 3.2 What mechanisms or procedures were used to collect the data (e.g., hardware apparatus or sensor, manual human curation, software program, software API)? How were these mechanisms or procedures validated?
 
