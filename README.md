@@ -54,7 +54,21 @@ The dataset is funded by advertisers on the site. Advertisers can target vistors
 
 The instances that comprise the dataset represent houses. However, in our dataset housing data is grouped at muncipality-level, where values represent the average number per municipality. In turn, all municipalities belong to a larger type of instance, the provinces. 
 
+The following screenshots represent a brief navigation path:
+
+1. The homepage of [Huizenzoeker.nl](https://www.huizenzoeker.nl/). From here, one can scroll down to the 'Woningmarkt'-section and navigate to on of the province pages.
+
+<img width="1434" alt="Screenshot 2021-10-12 at 11 11 32" src="https://user-images.githubusercontent.com/90346612/136928729-9d3855b9-4699-430e-abf7-2a1299c79af3.png">
+
+2. This is an example of a province page. This particular one considers the provinde Noord-Brabant. Notice how the url got extended with 'woningmarkt/noord-brabant/'. From this page, one can scroll down and select one of the municipality-pages that exist for the province in question.
+
 <img width="1440" alt="Screenshot 2021-10-12 at 11 11 44" src="https://user-images.githubusercontent.com/90346612/136928426-035806a6-3463-43d5-9679-d50e31fcb37d.png">
+
+3. This is an example of a municipality page within the province Noord-Brabant. This particular one considers the municipality Tilburg.
+
+<img width="1437" alt="Screenshot 2021-10-12 at 11 12 02" src="https://user-images.githubusercontent.com/90346612/136928508-388a21c2-885b-4ea7-9a8b-4deb02a84c7e.png">
+
+The goal of this project has been to scrape information per municipality (and later per province too). Therefore, pages like the ones displayed under step 2 and 3 have been utilized to obtain statistical housing-related measures per municipality (and province).
 
 #### 2.2 How many instances are there in total (of each type, if appropriate?)
 
