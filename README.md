@@ -107,14 +107,15 @@ Moreover, all pages cover histograms that show price and housing supply trends. 
 
 <img width="591" alt="Screenshot 2021-10-12 at 12 35 16" src="https://user-images.githubusercontent.com/90346612/136940387-2b280819-d4e4-49e2-99ed-f7545e79eafe.png">
 
-Next, a section is shown in which several questions are answered. The first questions, cover the exact same as the first 4 trend statistics. However, the last ones cover the population number and population growth/decline compared to the year before. This population-related information, again, will be of high relevance later in our project. 
+Next, a section is shown in which several questions are answered in unprocessed text. The first questions, cover the exact same as the first 4 trend statistics. However, the last ones cover the population number and population growth/decline compared to the year before. This population-related information, again, will be of high relevance later in our project. 
 
 <img width="570" alt="Screenshot 2021-10-12 at 12 36 56" src="https://user-images.githubusercontent.com/90346612/136940621-9fc2e4d0-7f6c-4afb-a07e-96fd890118fc.png">
 
-a pie chart that shows the average age distribution in the province or municipality.
+Furthermore, a pie chart showing the average age distribution in the province/municipality is included. Moreover, a statistic on average disposable income is included, which again will be important later in our project.
 
-Lastly, all pages
+<img width="586" alt="Screenshot 2021-10-12 at 12 41 48" src="https://user-images.githubusercontent.com/90346612/136941544-e1f6e1c2-2aa7-4946-9457-d5534044846f.png">
 
+Finally, at the bottom of the page random houses that are for sale/rent are displayed, followed by links that navigate to a 'child'-page (e.g. from province page to municipality page).
 
 #### 2.5 Is there a label or target associated with each instance? If so, please provide a description. 
 
