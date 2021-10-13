@@ -1,5 +1,6 @@
 ##ODCM project - team 3 - Huizenzoeker.nl
 ##Script to make the scraped data work as a dataset: final_dataframe data
+setwd("C:/Users/danie/OneDrive/Documents/Repositories/oDCM-project-team-3/src/collection")
 
 ##loading the exported data from Jupyter Notebook
 library(readr)
@@ -10,6 +11,8 @@ summary(huizenzoeker)
 head(huizenzoeker)
 huizenzoeker<-huizenzoeker%>%select(-'...1') #delete the first row with indices (not needed)
 #UPDATE: I changed the thousands delimiters in Python to , and in R this removes the thousand delimiter, I dont know if we should add it for clarity? but this already returns better summary statistics I think)
+#WARNING: the euro signs and delta's may change due to encoding erorrs when saving the file; if this happens, just replace the wierd signs with either the euro sign or the delta and youre fine
+#Therefore try to save the file with Big5 encoding (then there likely isn't an error)
 
 ##checking classes variables
 #correcting the classes of the variables
@@ -64,14 +67,28 @@ huizenzoeker$best_inkomen<-parse_number(huizenzoeker$best_inkomen) #UPDATE: HERE
 huizenzoeker$best_inkomen<-as.numeric(huizenzoeker$best_inkomen)
 
 #INWONERS
-#add code if finished
+#aantal inwoners
+huizenzoeker$n_inwoners<-huizenzoeker$'Aantal inwoners'
+#populatie stijging/daling
+huizenzoeker$perc_pop_stijging<-huizenzoeker$'% Populatie stijging'
+huizenzoeker$perc_pop_stijging<-gsub('[%]','', huizenzoeker$perc_pop_stijging) 
+huizenzoeker$perc_pop_stijging<-parse_number(huizenzoeker$perc_pop_stijging)
+huizenzoeker$perc_pop_stijging<-as.numeric(huizenzoeker$perc_pop_stijging)
+huizenzoeker$perc_pop_daling<-huizenzoeker$'% Populatie daling'
+huizenzoeker$perc_pop_daling<-gsub('[%]','', huizenzoeker$perc_pop_daling) 
+huizenzoeker$perc_pop_daling<-parse_number(huizenzoeker$perc_pop_daling)
+huizenzoeker$perc_pop_daling<-as.numeric(huizenzoeker$perc_pop_daling)
 
 #now we remove the old columns that we don't need anymore
-huizenzoeker_data2<-huizenzoeker%>%select(-c('Gem. vraagprijs','%£G Vraagprijs (t.o.v vorige maand)', 'Verkochte woningen','%£G Verkochte woningen (t.o.v vorige maand)','Gem. m2 prijs','%£G M2 prijs (t.o.v vorige maand)','% Vraagprijs overboden','%£G Overboden (t.o.v vorige maand)','Besteedbaar inkomen (per huishouden)'))
+huizenzoeker_data2<-huizenzoeker%>%select(-c('Gem. vraagprijs','%£G Vraagprijs (t.o.v vorige maand)', 'Verkochte woningen','%£G Verkochte woningen (t.o.v vorige maand)','Gem. m2 prijs','%£G M2 prijs (t.o.v vorige maand)','% Vraagprijs overboden','%£G Overboden (t.o.v vorige maand)','Besteedbaar inkomen (per huishouden)', '% Populatie stijging','% Populatie daling', 'Aantal inwoners'))
 
 #now we can explore the summary statistics for all our variables for the province Noord-Brabant
 View(huizenzoeker_data2)
 summary(huizenzoeker_data2)
+#REMARKABLE FINDINGS (STILL TO SOLVE MAYBE?):
+#Eemsdelta in groningen has no inwoners, inwoners = 0 ?? strange. 
+#Why are there some NA's in besteedbaar_inkomen, is it not given for some municipalities? 
+
 #now convert the dataframe to a CSV file to import it into Jupyter to there see the summary statistics too
 write.csv(huizenzoeker_data2, "C:\\Users\\danie\\OneDrive\\Documents\\Repositories\\oDCM-project-team-3\\src\\collection\\huizenzoeker_data2.csv",row.names=FALSE)
 

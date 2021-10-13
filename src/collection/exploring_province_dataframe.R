@@ -9,7 +9,11 @@ huizenzoeker1 <- read_csv("huizenzoeker_province_data.csv")
 View(huizenzoeker1)
 summary(huizenzoeker1)
 head(huizenzoeker1)
+huizenzoeker1<-huizenzoeker1%>%select(-'...1') #delete the first row with indices (not needed)
 #UPDATE: I changed the thousands delimiters in Python to , and in R this removes the thousand delimiter, I dont know if we should add it for clarity? but this already returns better summary statistics I think)
+#SAME WARNING HERE: SAVE WITH BIG5 ENCODING SUCH THAT EURO SIGNS AND DELTA'S DON'T GET MIXED UP
+#REMARKABLE: %POPULATIE DALING IS EMPTY, AS FOR EVERY PROVINCE THE NUMBER OF INHABITANTS HAS INCREASED (so we can get rid of this column)
+
 
 ##checking classes variables
 #correcting the classes of the variables
@@ -64,10 +68,17 @@ huizenzoeker1$best_inkomen<-parse_number(huizenzoeker1$best_inkomen) #UPDATE: HE
 huizenzoeker1$best_inkomen<-as.numeric(huizenzoeker1$best_inkomen)
 
 #INWONERS
-#add code if finished
+#aantal inwoners
+huizenzoeker1$n_inwoners<-huizenzoeker1$'Aantal inwoners'
+#populatie stijging/daling
+huizenzoeker1$perc_pop_stijging<-huizenzoeker1$'% Populatie stijging'
+huizenzoeker1$perc_pop_stijging<-gsub('[%]','', huizenzoeker1$perc_pop_stijging) 
+huizenzoeker1$perc_pop_stijging<-parse_number(huizenzoeker1$perc_pop_stijging)
+huizenzoeker1$perc_pop_stijging<-as.numeric(huizenzoeker1$perc_pop_stijging)
+#Here we leave out the perc pop daling because it only contains NA's (not valuable)
 
 #now we remove the old columns that we don't need anymore
-huizenzoeker_province_data1<-huizenzoeker1%>%select(-c('Gem. vraagprijs','%£G Vraagprijs (t.o.v vorige maand)', 'Verkochte woningen','%£G Verkochte woningen (t.o.v vorige maand)','Gem. m2 prijs','%£G M2 prijs (t.o.v vorige maand)','% Vraagprijs overboden','%£G Overboden (t.o.v vorige maand)','Besteedbaar inkomen (per huishouden)'))
+huizenzoeker_province_data1<-huizenzoeker1%>%select(-c('Gem. vraagprijs','%£G Vraagprijs (t.o.v vorige maand)', 'Verkochte woningen','%£G Verkochte woningen (t.o.v vorige maand)','Gem. m2 prijs','%£G M2 prijs (t.o.v vorige maand)','% Vraagprijs overboden','%£G Overboden (t.o.v vorige maand)','Besteedbaar inkomen (per huishouden)', 'Aantal inwoners', '% Populatie stijging','% Populatie daling'))
 
 #now we can explore the summary statistics for all our variables for the province Noord-Brabant
 View(huizenzoeker_province_data1)
