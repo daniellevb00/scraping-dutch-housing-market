@@ -10,20 +10,12 @@ Huizenzoeker data used is available at [Huizenzoeker.nl](https://www.huizenzoeke
 
 <img width="769" alt="Screenshot 2021-10-12 at 17 12 43" src="https://user-images.githubusercontent.com/90346612/136982742-0a414a2f-5358-44e2-af6d-2b07320f9bc6.png">
 
-
-
-
-
 ## Repository overview
 
 * readme.txt = documentation project. 
 * docs/ = stores any supporting files for the documentation. 
 * data/ = stores the raw data files. 
 * src/ = stores the files source codes for collecting the data, and used to generate statistics/insights documented in the README.
-
-
-
-
 
 ## Contributors
 
@@ -41,45 +33,37 @@ Members of our team:
 
 * [Daniëlle van Bruggen](https://github.com/daniellevb00), d.m.vanbruggen@tilburguniversity.edu
 
-
-
-
-
 # Documentation
-
-
 
 ## 1 Motivation
 
+Our datasource 'Huizenzoeker.nl' fits well into the data aggregator and low scale/scope category of Figure W3.1: Data Source Exploration of the 'Fields of Gold' paper (*add a reference*). Namely the data available on Huizenzoeker.nl is less detailed, but contains data from multiple platforms (multi-platform data), and it has only regional coverage as opposed to global coverage (only presents data on the housing market for the municipalities in the Netherlands; so for the most part only useful for those living or planning to live in the Netherlands). As for content type, we can put this site into the e-commerce type (??, not sure what fits best). 
 
+*add the table from the Fields of Gold paper here*
+
+Although Huizenzoeker.nl is lesser known (lesser users) than other housing sites (even those on regional level too) such as Funda, it offers the richer data and novel measures we need to answer our research questions. Instead of having to gather the data from numerous pimrary data providers in the housing sector, this data aggregator facilitated our collection of multi-platform data far more efficiently. 
 
 ### 1.1 For what purpose was the dataset created? Was there a specific task in mind? Was there a specific gap that needed to be filled? Please provide a description. 
 
 As the seriousness of the housing crisis and the shortage of listings differs across the country, we aimed to create a dataset which represented the current housing market for each municipality in every province of the Netherlands. It would clarify which places are hit hardest by the crisis and which the least. With this dataset, we may faciliate these first-time buyers and young professionals in terms of their search to buy or a rent a house by showing them where they would have the highest chances. Furthermore, it would provide them with insights on recent price developments of listings in a certain area, which helps them in negotiations about the purhcase price. Therefore, this dataset provides consumers with other data in addition to what information is offered by their broker (e.g. direct information from the Kadaster). There were already some datasets available on the Dutch housing market, however these did not specifically focus on the overbidding aspect of the current crisis which forms an essential part of our research. Besides that, instead of only focussing on certain parts of the Netherlands we preferred to focus on all municipalities in the Netherlands to get a more complete picture of the current state of the housing crisis. By focusing on municipalities, the units we are analyzing are small enough to deeply dive into the housing market of the Netherlands locally (as opposed to only focusing on provinces), yet, the units are large enough to maintain order and control in our dataset (as opposed to focusing on every house that is for sale in the Netherlands).
-
-
 
 ### 1.2 Who created this dataset (e.g. which team, research group) and on behalf of which entity (e.g., company, institution, organization)?
 
 Huizenzoeker.nl is an independent platform which is not influenced or moderated by estate agents, as it aims to inform its clients in a honest manner with reliable information. It is perceived as an aggregate site which collects information from public different sources, such as JAAP.nl. However, as Huizenzoeker.nl is owned by Spotzi, a big data visualizations specialist that focuses on the visualizing and analysing of spatial data, The Huizenzoeker team also provides much data themselves. From Spotzi, they retrieve much data on, for example, the value of the listings and development of housing prices. This is beneficial to our scraping project as this resulted in longs lists of information present for each listing, municipality, province etc. Therefore, it does not only provide specifics on the houses themselves like every other site, but also on the neighbourhood, the mean income in the municipality, the distance to the closest supermarket, etc. The platform states that it is a partner of JAAP.nl and Huislijn.nl, however it does not have explicit consent from JAAP.NL to show all information that is displayed on JAAP.nl (which seems quite contradictionary). In turn, databanks like JAAP.nl get their data from other sites, such as Funda.nl.  
 
 
-
 ### 1.3 Who funded the creation of the dataset? If there is an associated grant, please provide the name of the grantor and the grant name and number. 
 
 The dataset is funded by advertisers on the site. Advertisers can target vistors on the site through the filter options, which allows advertisers to target based on different home characteristics or on region and price range. As Spotzi created various profiles from the data they compiled, e.g. starters (young and ambitious), families with children (nest builder), kids away from home (thriving fifties); advertisers can target very specifically to a certain audience within a certain zip code. These profiles can also be used on external sites through the Rearch extension function. 
-
-
-
-
+*Maybe we can still add a little more information here* 
 
 ## 2 Composition
 
-
-
 ### 2.1 What do instances that comprise the dataset represent (e.g. documents, photos, people, countries)? Are there multiple types of in-stances (e.g. movies, users, ratings; people and interactions between them; nodes and edges)? Please provide a description. 
 
-The instances that comprise the dataset represent houses. However, in our dataset housing data is grouped at muncipality-level, where values represent the average number per municipality (step 3 of navigation path below). In turn, all municipalities belong to a larger type of instance, the provinces (step 2 of navigation path below). 
+The instances that comprise the dataset represent all municipalities of the Netherlands for every price; this is one type of instance. Therefore, the entities thus summarize the data of the housing market (for every house) in that municipality; these values thus represent the averages per municipality (step 3 of the navigation path below). The instances are connected to eachother by the province that they are in; therefore all municipalities also belong to a larger type of instance, the provinces (step 2 of the navigation path below). 
+
+The instances that comprise the dataset represent houses (*maybe more specific, so all houses or houses recently sold or currently available?*). However, in our dataset housing data is grouped at muncipality-level, where values represent the average number per municipality (step 3 of navigation path below). In turn, all municipalities belong to a larger type of instance, the provinces (step 2 of navigation path below). 
 
 The following screenshots represent a brief navigation path:
 
@@ -97,11 +81,9 @@ The following screenshots represent a brief navigation path:
 
 The goal of this project has been to scrape information per municipality and per province (for completeness). Therefore, pages like the ones displayed under step 2 and 3 have been utilized to obtain statistical housing-related measures per municipality and province.
 
-
-
 ### 2.2 How many instances are there in total (of each type, if appropriate?)
 
-In total there are 12 provinces, each with their own municipalities: 
+If every municipality is seen as an instance, we would say there are 352 municipalities in total, which are spread over the 12 provinces of the Netherlands. 
 * Groningen = 10 municipalities
 * Friesland = 18 municipalities
 * Drenthe = 12 municipalities
@@ -116,16 +98,12 @@ In total there are 12 provinces, each with their own municipalities:
 * Zeeland = 13 municipalities
 Total = 352 municipalities.
 
-
-
 ### 2.3 Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set? If the dataset is a sample, then what is the larger set? Is the sample representative of the larger set (e.g., geographic coverage)? If so, please describe how this representativeness was validated/verified. If it is not representative of the larger set, please describe why not (e.g. to cover a more diverse range of instances, because instances were withheld or unavailable). 
 
-It is a sample in the sense that all house-listings in the Netherlands are included (which is the full population), but are grouped and displayed as averages of their municipality. As every listing is located in a municipality, the sample is certainly representative of the larger set. Thus, our sample knows full geographic coverage. 
-
-
+All house listings in the Netherlands are included in our dataset (the full population), however their data is grouped and displayed as an average for each municipality. As every listing is located in a municipality, the sample is certainly representative of the larger set. Thus, our sample knows full geographic coverage. 
 
 ### 2.4 What data does each instance consist of? 'Raw' data (e.g. unprocessed text or images) or features? In either case, please provide a description. 
-
+*here we call provinces instances again, while I think it should be municipality = instance*
 To clarify, each province, or instance, knows its own page, but next to that, also is the parent of several municipality pages (as described in question 2.2). However, the structure of this province and municipality page are almost identical. For this question, illustration is based on one of the municipality pages, Tilburg (Noord-Brabant).
 
 First, all pages display a map of the Netherlands and their specific location on the map. Next, all contain a link to all the houses that are for sale followed by a link for all houses that are for rent. Furthermore, a subsequent link directs to themost expensive houses of the munucipality/province in question. 
@@ -152,27 +130,22 @@ Finally, at the bottom of the page random houses that are for sale/rent are disp
 
 ### 2.5 Is there a label or target associated with each instance? If so, please provide a description. 
 
-
-
 From each province in the Netherlands, we intend to scrape all corresponding municipalities. For the provinces an associated URL is for example 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/', which changes to 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/tilburg/' for Tilburg. So, each instance that we want to scrape corresponds to their own URL. 
 
 Moreover, within the code we wrote, we extracted the municipality or province name for each of these URLs, by scraping the title and removing the word 'Woningmarkt' from it. Therefore, we changed the official label to an artificial one for clarity purposes, e.g. now the municipality Tilburg can be identified through the label 'Tilburg', instead of its URL.
 
-
-
 ### 2.6 Is any information missing from individual instances? If so, provide a description, explaining why this information is missing (e.g., because it was unavailable). This does not include intentionally removed information, but might include, e.g. redacted text. 
 
 For our purposes of scraping Huizenzoeker.nl, there is no information missing that we wanted to include in our dataset.
-
-
+*Maybe include that we wanted to scrape the graphs as well but that we couldn't because the information of the graphs wasn't given in the source code*
 
 ### 2.7 Are relationships between individual instances made explicit (e.g., user's movie ratings, social network links)? If so, please describe how these relationships are made explicit. 
 
 Yes, the municipalities are related to eachother by the province they are in. When running our code for all municipality URLs in a certain province, all information for every municipality within that province will be the output. The parent URL (province) and child URL (municipality) are **always** connected. This is explicitly visible in the URL names too. For every municipality, the municipality name in the link follows the province name. E.g. 'tilburg/' always follows 'noord-brabant/: 'https://www.huizenzoeker.nl/woningmarkt/noord-brabant/tilburg/'
 
-
-
 ### 2.8 Are there recommended data splits (e.g. training,development/validation, testing)? If so, please provide a description of these splits, explaining the rationale behind them. 
+
+*I don't think they mean using different code blocks for scraping different variables, but more like validating the outcomes and splitting the data into a validation/holdout sample and a calibration sample (e.g. one to estimate and one to validate the results; like in IRM) ?? 
 
 The data that is present on every province and municipality page has a similar structure. Due to this structure we were able to split the data into multiple variables. This is recommended as it allows for quicker comparing and interpreting of certain statistics among provinces and among municipalities.
 
@@ -190,8 +163,6 @@ Lastly, several measures in number of inhabitants have been split off. Firstly, 
 
 The paragraphs above simply clarify what the all variables entail, which ones belong together, and why they are important to include in our dataset. However, within the jupyter script, all the above-mentioned variables have been included into one table. We chose to display everything together to make all the information quickly accessible. We think it is no problem to consider all the variables into code like we do now because of the following reason. [Huizenzoeker.nl](https://www.huizenzoeker.nl/) updates its content each month automatically. The structure and the urls stay exactly the same, yet, the statistical numbers change per month. We designed our code in a way that it captures every number that is present at the moment, regardless of whether we run it in September versus October for example.
 
-
-
 ### 2.9 Is the dataset self-contained, or does it link to or otherwise rely on external resources (e.g. websites, tweets, other datasets)? If it links to or relies on external resources: 
 ### a) are there guarantees that they will exist and remain constant over time; 
 
@@ -199,57 +170,40 @@ The paragraphs above simply clarify what the all variables entail, which ones be
 
 ### b) are there official arhival versions of the complete datasets (i.e. including the external resources as they existed at the time the dataset was created).
 
-Possibly for own utilization. However, no official arcihval versions of the complete datasets are available to us as the public of [Huizenzoeker.nl](https://www.huizenzoeker.nl/).
+Possibly for own utilization. However, no official arcihval versions of the complete datasets are available to us as the public of [Huizenzoeker.nl](https://www.huizenzoeker.nl/). Huizenzoeker.nl displays real-time data, and not so much archival data for the data we scrape to answer our research objective (there is for instance data on the 'prijsontwikkelingen' over the last couple of years, which means data for the previous years must be available too). The data we scrape from the municipality pages is data that is updated every month, so when scraping this page you do not get direct access to the figures or averages for the previous months. 
 
 ### c) are there any restrictions (e.g., licenses, fees) associated with any of the external resources that might apply to a future user? Please provide descriptions of all external resources and any restrictions associated with them, as well as links or other access points, as appropriate.
 
 The external resources include [JAAP.nl](https://www.jaap.nl/) and [Huislijn.nl](https://www.huislijn.nl/), who in turn extract data from other sites such as [Funda.nl](https://www.funda.nl/). These sites are all available for free, thus, no restrictions are present in the form of licenses and fees for future users. There is a premium (under ['Abonnementen'](https://www.huizenzoeker.nl/woningmarkt-dashboard/))part of Huizenzoeker.nl for which you do need to pay to access it. For our project, the premium information was irrelevant. 
 
-
-
 ### 2.10 Does the dataset contain data that might be considered confidential (e.g. data that is protected by legal priviledge or by doctorpatient confidentiality, data that includes the content of individuals non-public communications)? If so, please provide a description. 
 
 No, the data is not confidential. Therefore users do not have any rights to remove listings from the Huizenzoeker site. Only if their house is no longer for sale/rent on JAAP.nl, their listing will be removed. However, information on the house itself such as its value, year of construction, property size, will remain available. This information is considered as public. 
 
-
-
 ### 2.11 Does the dataset contain data that, if viewed directly, might be offensive, insulting, threatening, or might otherwise cause anxiety? If so, please describe why. 
 
-No the data is not in any way offensive, insulting, or threatening. 
-
-
+No the data can in no way be perceived as offensive, insulting, or threatening. 
 
 ### 2.12 Does the dataset relate to people? If not, you may skip the remaining questions in this section. 
 
 Not applicable. 
-
-
 
 ### 2.13 Does the dataset identify any subpopulations (e.g., by age, gender)? If so, please describe how these subpopulations are identified and provide a description of their respective distributions within the dataset. 
 
 Within out dataset we only scrape the number of inhabitants per municipality/province, and the average disposable income per municipality/province. Therefore, one subpopulation in terms of different levels of average disposable income can considered to be present. 
 
 LOOK FOR DISTRIBUTIONS FOR THIS SUBPOPULATION !!!!!  
-
-
+*I don't think we have subpopulations, as we scrape houses and not people, so I don't think we need to identify subpopulations; we scrape data for every person able to buy a house and don't target only starters who are buying a house, or only very rich people buying villas* 
 
 ### 2.14 Is it possible to identify individuals (i.e., one or more natural persons), either directly or indirectly (i.e., in combination with other data) from the dataset? If so, please describe how. 
 
 Not applicable. 
 
-
-
 ### 2.15 Does the dataset contain data that might be considered sensitive in any way (e.g. data that reveals racial or ethnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)? If so, please provide a description. 
 
 Not applicable. 
 
-
-
-
-
 ## 3 Collection process 
-
-
 
 ### 3.1 How was the data associated with each instance acquired? Was the data directly observable (e.g., raw text, movie ratings), reported by subjects (e.g., survey responses), or indirectly inferred/derived from other data (e.g., part-of-speech tags, model-based guesses for age or language)? If data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how.
 
@@ -341,61 +295,51 @@ Not appliable.
 
 ## 4 Preprocessing, cleaning, labeling 
 
-
-
 ### 4.1 Was any preprocessing/cleaning/labeling of the data done (e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)? If so, please provide a description. If not, you may skip the remainder of the questions in this section. 
 
-First of all, all the values of the variables have been cleaned in a way that they only give a certain numeric value or percentage as output (no additional words, and only consistent punctuation). When no numeric value exists for a specific municipality, we encoded that 'NA' will result as output for the variable in question. Furthermore, all the variables have been assigned a clear label, such that the numeric values are given a meaning. Additionally, all the variables have been displayed in a table against all the municipalities/provinces as a small start in preprocessing. 
+First of all, all the values of the variables have been cleaned in a way that they only give a certain numeric value or percentage as output (no additional words, and only consistent punctuation). This means removing the HTML tag words, stripping out unncessary characters and retaining relevant substrings only. To achieve this, we made use of regular expressions (regex) to pre-process the textual data. When no numeric value exists for a specific municipality, we encoded that 'NA' will result as output for the variable in question. Furthermore, all the variables have been assigned a clear label, such that the numeric values are given a meaning. For example, we identified values as provinces, cities, *and for all variables*. Additionally, all the variables have been displayed in a table against all the municipalities/provinces as a small start in preprocessing. 
 
-ARE WE GOING TO DO MORE DPREP FOR ODCM ?????
-
-
+*Add more info on this by looking at Fields of Gold paper: step 4: data extraction* 
 
 ### 4.2 Was the “raw” data saved in addition to the preprocessed/cleaned/labeled data (e.g., to support unanticipated future uses)? If so, please provide a link or other access point to the “raw” data.
 
-Yes. Raw output is being saved in a json file automatically, as part of our coding script. The json file can be accessed by running our Scraping Woningmarkt (Final Code) jupyter script. 
-
-
+Yes, the raw output is being saved in a json file automatically, as part of our coding script. The json file can be accessed by running our Scraping Woningmarkt (Final Code) jupyter script. 
+*Add more information here from the storage/deployment section of Fields of Gold under step 4*
 
 ### 4.3 Is the software used to preprocess/clean/label the instances available? If so, please provide a link or other access point.
 
-We solely used Python and RStudio.
+We decided to use self-developed code that interfaces with high-level scraping libraries (e.g. Selenium and BeautifulSoup), as a software tool for data extraction. We did not choose to use a ready-made scraping toolkit like Monzenda, or packages that only require some coding like Scrapy for Python, as for the complexity of our data collection the self-developed code method seemed the most desirable. Developing the code ourselves in Python required quite some time and effort, however in the end it is a better way to actively manage the data quality and reproductibility than through the other methods. 
+After preprocessing, cleaning, and labelling the data in Python, we exported the dataset to RStudio where we transformed the dataset into one ready for analysis. Python and Rstudio, and the libraries Selenium and BeautifulSoup are all publically available. *Provide link?* So together with our code, you can replicate our scraping efforts easily.
 
-MIS IK IETS HIER????? 
-
-
-
-
+*Maybe add more info on how we did what in the Rfile, not sure*
 
 ## 5 Uses
-
-
 
 ### 5.1 Has the dataset been used for any tasks already? If so, please provide a description. 
 
 We used our dataset in RStudio to create some plots and figures of the data we collected. We did this to give insights into how we would compare the municipalities for each province, and the data between the provinces. 
 
-
-
 ### 5.2 Is there a repository that links to any or all papers or systems that use the dataset? If so, please provide a link or other access point.
 
-This repository.
+There are not many (if any) papers or systems that use this dataset, so there is not really such repository. 
+On Github, we found some respositories for: 
+* A simple python wrapper for the Huizenzoeker API (but last updated in oct 2013) = https://github.com/bpeschier/huizenzoeker
+* Using the Jaap API to look for rentals in Rotterdam = https://github.com/thomasvt1/HuizenZoeker
+So in sum not that interesting...
 
-MOETEN WE DIT NOG DOEN????
-
+*Adjust this section still*
 
 
 ### 5.3 What (other) tasks could the dataset be used for?
 
-Boradly speaking, a suitable task this dataset can be used for is helping (future) inhabitants of the Netherlands find their ideal home. By accessing our data, a person could find the best municipality to live in for this person's specific circumstances (e.g. specific disposable income level), find a region where the value-for-money seems to be of high standard, to help them in negotiations on the price, to help them find out what is the norm in terms of overbidding for each municipality, and more.
-
+Broadly speaking, a suitable task this dataset can be used for is helping (future) inhabitants of the Netherlands find their ideal home. By accessing our data, a person could find the best municipality to live in for this person's specific circumstances (e.g. specific disposable income level), find a region where the value-for-money seems to be of high standard, to help them in negotiations on the price, to help them find out what is the norm in terms of overbidding for each municipality, and more.
 
 
 ### 5.4 Is there anything about the composition of the dataset or the way it was collected and preprocessed/cleaned/labeled that might impact future uses? For example, is there anything that a future user might need to know to avoid uses that could result in unfair treatment of individuals or groups (e.g., stereotyping, quality of service issues) or other undesirable harms (e.g., financial harms, legal risks) If so, please provide a description. Is there anything a future user could do to mitigate these undesirable harms?
 
 The only harms that could be done in the case of Huizenzoeker relates to financial harms, e.g. when one is misinformed about housing prices due to our dataset. 
 
-However, as long as Huizenzoeker does not incur drastic changes, no undesirable harms will arise. 
+However, as long as Huizenzoeker does not incur drastic changes, no undesirable harms will arise. *also when there would be drastic changes on Huizenzoeker.nl then our code likely won't work anymore so in that case our scraper won't result in undesirable harms either, but just won't work) 
 
 Future users of the dataset could decide to implement more variables, or kick certain variables out. As long as this is done following the same steps as in our coding script, no harm can be done. 
 
@@ -403,7 +347,7 @@ Future users of the dataset could decide to implement more variables, or kick ce
 
 ### 5.5 Are there tasks for which the dataset should not be used? If so, please provide a description.
 
-The dataset can be used for any matters regarding the housing market in the Netherlands. For anything outside of this topic, the dataset has no use.
+The dataset can be used for any matters regarding the housing market in the Netherlands, at municipality level as well as province level. For anything outside of this topic, the dataset has no use.
 
 
 
