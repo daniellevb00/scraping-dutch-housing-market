@@ -6,7 +6,7 @@
 
 ![](https://www.makelaartips.nl/wp-content/uploads/2019/07/Huizenzoeker-logo-klein-1-300x150.png)
 
-```{py}
+```{r setup, include=FALSE}
 from bs4 import BeautifulSoup
 import requests
 import re
