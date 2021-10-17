@@ -7,7 +7,7 @@
 ## Loading packages and data 
 library(readr)
 library(dplyr)
-huizenzoeker2 <- read_csv("huizenzoeker_street_data.csv")
+huizenzoeker2 <- read_csv('../../data/huizenzoeker_street_data.csv')
 View(huizenzoeker2)
 huizenzoeker2<-huizenzoeker2[2:13] #delete the first row with indices (not needed)
 summary(huizenzoeker2)

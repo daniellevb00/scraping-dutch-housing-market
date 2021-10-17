@@ -1,5 +1,5 @@
 ---
-title: "Scraping Huizenzoeker.nl to Analyse the Dutch Housing Market"
+title: "huizenzoeker_municipality.csv, huizenzoeker_province.csv, huizenzoeker_streets.csv"
 output:
   pdf_document:
     toc: yes
@@ -11,11 +11,13 @@ output:
 
 -----------------------------
 
-#### Which places in the Netherlands are hit hardest by the Dutch Housing crisis, and which the least?
+#### Scraping Huizenzoeker.nl to Analyse the Dutch Housing Market: Which places in the Netherlands are hit hardest by the Dutch Housing Crisis, and which the least?
 
-Currently, the housing crisis is one of the most prominent societal challenges in the Netherlands. The Dutch housing market is both very competitive as well as inaccessible as it must deal with a supply shortage, which in turn leads to long waiting lists for social housing. The transaction prices of houses are going through the roof, as CBS (Centraal Planbureau voor Statistiek, 2021) revealed that prices in the first quarter of 2021 were 11.3% higher compared to a year before, which is way above the average increase in Europe. Many prospective buyers have to overbid houses in order to ensure a place to live. A huge problem is that the amount of mortgage is determined by the appraisal value of the house, which causes many to put their own capital into the purchase. This makes it very challenging for new entrants on the market (think of first-time buyers, young professionals) to succeed in renting or buying a house or apartment, especially as many are still paying off large amounts of student debt. It appears that only 3% of first-time buyers are financially able to buy a home without getting themselves into serious financial trouble. 
+Currently, the housing crisis is one of the most prominent societal challenges in the Netherlands. The Dutch housing market is both very competitive as well as inaccessible as it must deal with a supply shortage, which in turn leads to long waiting lists for social housing. The transaction prices of houses are going through the roof, as CBS (Centraal Planbureau voor Statistiek, 2021) revealed that prices in the first quarter of 2021 were 11.3% higher compared to a year before, which is way above the average increase in Europe. Many prospective buyers have to overbid houses in order to ensure a place to live. A huge problem is that the amount of mortgage is determined by the appraisal value of the house, which causes many to put their own capital into the purchase. This makes it very challenging for new entrants on the market (think of first-time buyers, young professionals) to succeed in renting or buying a house or apartment, especially as many are still paying off large amounts of student debt. It appears that only 3% of first-time buyers are financially able to buy a home without getting themselves into serious financial trouble. The data sets that we created during this project allow us to answer questions regarding, for instance: 'Which places in the Netherlands are hit hardest by the Dutch Housing Crisis and which the least?'
 
-We have considered a few multiple housing sites to incorporate into our project, where [Huizenzoeker.nl](https://www.huizenzoeker.nl/) appeared to be the most suitable option. This website offers a clear view of the Dutch housing market with a wide range of listings, displaying an extensive amount of information (per listing, province, municipality, residence, and even per street). Funda.nl currently is the largest housing provider in the Netherlands, however, the site is not useful for this project. Funda installed secure protection for its data to brace for competitor sites. Similarly, Zoekallehuizen.nl offers a large range of listings too, but could not provide us with important information needed to research the housing crisis, e.g. overbidding percentages. Similarly, Remax.nl, is a large housing website, yet, mainly focusing on houses in other countries, like Spain and Belgium. As we are determined to analyse the Dutch housing market by cause of the severe current crisis, Remax.nl has not sufficed to our needs.  
+We have considered a few multiple housing sites to incorporate into our project, where [Huizenzoeker.nl](https://www.huizenzoeker.nl/) appeared to be the most suitable option. This website offers a clear view of the Dutch housing market with a wide range of listings, displaying an extensive amount of information (per listing, province, municipality, residence, and even per street). While currently Funda.nl is the largest housing provider in the Netherlands, the site is not the most useful for this project. Funda as the large well-known source that it is, is strictly protecting its for data to brace the site against data capture by competitor sites. Similarly, Zoekallehuizen.nl offers a large range of listings too, but could not provide us with the interesting and important aspects of the housing crisis we were looking after, e.g. overbidding percentages. Moreover, we looked for housing sites for other countries, such as Remax.nl which is one of the largest housing websites and mainly focuses on housing in Spain and Belgium. However, the 'societal challenge' part of our research topic is what particularly interested us from the start, and therefore we decided to stick with analysing the Dutch Housing market. 
+
+Our data source Huizenzoeker.nl fits well into the data aggregator and low scale/scope category of Figure W3.1: Data Source Exploration of the 'Fields of Gold' paper by Boegershausen et al. (2021). Namely, the data available on Huizenzoeker.nl is less detailed, but contains data from multiple platforms (multi-platform data), and it has only regional coverage as opposed to global coverage. In other words, it only presents data on the housing market for the municipalities in the Netherlands, thus for the most part it will only be useful to those living or planning to live in the Netherlands. Although Huizenzoeker.nl is lesser known (lesser users) than other housing sites (even those on regional level too) such as Funda, it offers the richer data and novel measures we need to answer our research questions. Instead of having to gather the data from numerous primary data providers in the housing sector, this data aggregator facilitated our collection of multi-platform data far more efficiently.
 
  \ 
 
@@ -32,10 +34,9 @@ We have considered a few multiple housing sites to incorporate into our project,
 
 #### 1.1 For what purpose was the dataset created? 
 
-As the seriousness of the housing crisis and the shortage of listings differs across the country, we aim to create multiple datasets with information on the current housing housing market for each province, municipality, and street of the Netherlands. These datasets will be helpful in identifying the places hit the hardest by the housing crisis, and which places seem relatively 'save'. Thereby, we would like to facilitate first-time buyers and young professionals with this fundamental information in their search to buy or rent a house. Namely: 'Where may they find the best value for their money?' based on the percentage overbid statistics we provide for all provinces and municipalities. But that is not the only data these datasets include, we provide additional data compared to that what is offered by the broker! For example, we too provide insights into the price developments of the listings, which in turn may help consumers gain relevant information for purchase price-negotiations (and other direct information from the dutch 'Kadaster'). 
+As the seriousness of the housing crisis and the shortage of listings differs across the country, we aim to create multiple data sets with information on the current housing housing market for each province, municipality, and street of the Netherlands. These data sets will be helpful in identifying the places hit the hardest by the housing crisis, and which places seem relatively 'safe'. Thereby, we would like to facilitate first-time buyers and young professionals with this fundamental information in their search to buy or rent a house. Namely: 'Where may they find the best value for their money?' based on the percentage overbid statistics we provide for all provinces and municipalities. But that is not the only data these datasets include, we provide additional data compared to that what is offered by the broker! For example, we too provide insights into the price developments of the listings, which in turn may help consumers gain relevant information for purchase price-negotiations (and other direct information from the dutch 'Kadaster'). 
 
-
- There are datasets about the Dutch housing market available already. However, these do not specifically focus on the overbidding aspect of the current crisis, which forms an essential part of our research. Besides that, in addition of narrowly focusing on certain areas of the Netherlands, we preferred to focus on all municipalities in the Netherlands to get a more complete picture of the current state of the housing crisis. By focusing on municipalities, the units we are analyzing are small enough to deeply dive into the housing market of the Netherlands locally (as opposed to only focusing on provinces). Yet, the units are large enough to maintain order and control in our dataset (as opposed to focusing on every house that is for sale in the Netherlands).
+There are datasets about the Dutch housing market available already. However, these do not specifically focus on the overbidding aspect of the current crisis, which forms an essential part of our research. Besides that, in addition of narrowly focusing on certain areas of the Netherlands, we preferred to focus on all municipalities in the Netherlands to get a more complete picture of the current state of the housing crisis. By focusing on the municipalities, residences, and streets (but only for a subset, which will be explained in further detail later), the units we are analyzing are small enough to deeply dive into the housing market of the Netherlands locally (as opposed to only focusing on provinces). Yet, the units are large enough to maintain order and control in our data set (as opposed to focusing on every house that is for sale in the Netherlands).
 
  \ 
 
@@ -65,31 +66,29 @@ There was no funding granted for creation of the data set.
 
 #### 2.1 What do instances that comprise the dataset represent?
 
-The instances that comprise the dataset represent all __municipalities__ of the Netherlands, as being one type of instance. The entities summarize the data of the housing market (for every house) in that municipality. The values related to the municipalities in the Netherlands represent the averages per municipality. The instances are connected to each other by the province that they are in. Therefore, all municipalities  belong to a larger type of instance, the provinces. As a bonus to the datasets that were generated for each municipality and province, we created a scraper that navigates from province to municipality, from municipality to residence, and from residence to street names. Since this would generate an enormous amount of URLS, generating this dataset for each street name in the Netherlands would take a lot of time (which is beyond the scope of this project). Therefore, to give an impression of how data on street-level looks like, we decided to focus on the province 'Noord-Brabant', the municipality 'Tilburg' and the residence 'Tilburg'. From the residence 'Tilburg' we extract all the streets (such as Warandelaan, the street name of Tilburg University!). 
+The instances that comprise the data set represent all __municipalities__ of the Netherlands, as being one type of instance. The entities summarize the data of the housing market (for every house) in that municipality. The values related to the municipalities in the Netherlands represent the averages per municipality. The instances are connected to each other by the province that they are in. Therefore, all municipalities  belong to a larger type of instance, the provinces. 
+As a bonus to the data sets that were generated for each municipality and province, we created a scraper that navigates from province to municipality, from municipality to residence, and from residence to street names. Since this would generate an enormous amount of URLS, generating this data set for each street name in the Netherlands would take a lot of time (which is beyond the scope of this project). Therefore, to give an impression of how data on street-level looks like, we decided to focus on the province 'Noord-Brabant', the municipality 'Tilburg' and the residence 'Tilburg'. From the residence 'Tilburg' we extract all the streets (such as Warandelaan, the street name of Tilburg University!). 
+Therefore, our scraper really generates multiple data sets; one for the provinces, one for the municipalities, and one for the streets of Tilburg, and all these can be considered as the instances that comprise the data set, only on different levels. For convenience, and since it is our main objective at the moment, we focus on the municipalities within this documentation. However, keep in mind that the same counts for all other levels. 
 
  \ 
 
 #### 2.2 How many instances are there in total (of each type, if appropriate?)
 
 If every municipality is seen as an instance, we would say there are 352 municipalities in total, which are spread over the 12 provinces of the Netherlands. 
-
- * Groningen = 10 municipalities
- * Friesland = 18 municipalities
- * Drenthe = 12 municipalities
- * Overijssel = 25 municipalities
- * Flevoland = 6 municipalities
- * Gelderland = 51 municipalities
- * Noord-Holland = 47 municipalities
- * Zuid-Holland = 52 municipalities
- * Utrecht = 26 municipalities
- * Limburg = 31 municipalities
- * Noord-Brabant = 61 municipalities
- * Zeeland = 13 municipalities
- * Total = 352 municipalities.
  
-```{r} 
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error=TRUE)
+```
+ 
+```{r, message=FALSE, warning=FALSE}
+library(readr)
+library(dplyr)
+```
+ 
+ 
+```{r, echo = FALSE, message=FALSE, warning=FALSE} 
 huizenzoeker1 <- read_csv("../data/huizenzoeker_municipality.csv")
-huizenzoeker1%>%count(province)
+huizenzoeker1%>%count(provincie)
 ```
  
  
@@ -98,7 +97,7 @@ huizenzoeker1%>%count(province)
 
 #### 2.3 Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set? 
 
-All municipalities in the Netherlands are included in our dataset (the full population). However, since the data is grouped and displayed as an average for each municipality, our dataset could be interpreted as a sample. Moreover, we created a subset of the streets for the residence Tilburg, as an illustration of the possibilities of scraping data both on province level and on street level. Generally speaking, as every listing is located in a municipality, the sample is certainly representative of the larger set. 
+All municipalities in the Netherlands are included in our data set (the full population). However, since the data is grouped and displayed as an average for each municipality, our data set could be interpreted as a sample. Moreover, we created a subset of the streets for the residence Tilburg, as an illustration of the possibilities of scraping data both on province level and on street level. Generally speaking, as every listing is located in a municipality, the sample is certainly representative of the larger set. 
 
  \ 
 
@@ -140,7 +139,7 @@ Moreover, within the code we wrote, we extracted the municipality or province na
 
 #### 2.6 Is any information missing from individual instances? 
 
-Some data from Huizenzoeker.nl that we intended to scrape is displayed in charts and graphs, and for that reason, we are unable to grasp this data and extend our dataset according to this information.
+Some data from Huizenzoeker.nl that we would have loved to scrape to extend our data set is displayed in charts and graphs, and for that reason, we are unable to grasp this data from the source code as it seemed more 'hidden' than the other information we scraped. Moreover, as the data is real-time data, there appear to be some missing values for some municipalities for certain variables. For example, in small municipalities or residences where not many people live, houses will not be sold as often as in larger municipalities, therefore it can appear that at the moment of scraping the data, for that municipality most of the variables contain NA values. As if there are no houses sold, there will also not an average asking price for this month, a % overbid or an average price per squared meter. 
 
 \ 
 
@@ -148,11 +147,23 @@ Some data from Huizenzoeker.nl that we intended to scrape is displayed in charts
 
 Yes, the municipalities are related to each other by the province that they are in. When running our code for all municipality URLs in a certain province, all information for every municipality within that province will be the output. The parent URL (province) and child URL (municipality) are __always__ connected. This also holds for residences and street names. This is explicitly visible in the URLs. For every municipality, the municipality name in the link follows the province name (see: question 2.5).
 
+As is displayed here, in the municipalities data set we indicate for each municipality 'city' to which province it belongs, which links these individual municipalities to the provinces in the provinces data set. 
+```{r, echo = FALSE, message=FALSE, warning=FALSE} 
+head(huizenzoeker1)
+```
+But also for our bonus feature, the streets data set, each street is linked to the residence that it is in, which is too made explicit in the data set. 
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE} 
+huizenzoeker2 <- read_csv("../data/huizenzoeker_streets.csv")
+head(huizenzoeker2)
+```
+
+
  \ 
 
 #### 2.8 Are there recommended data splits (e.g. training,development/validation, testing)? 
 
-There are no recommended data splits in our dataset, since our dataset is parsed and collected into one file. We chose to parse and collect the variables in our dataset together in one script to make all the information quickly accessible. We think this is no problem mainly because of the following reason. Huizenzoeker.nl updates its content each month automatically. The structure and the URLs stay exactly the same, yet, the statistical numbers change per month. We designed our code in a way that it captures every number that is present at the moment, regardless of whether we run it, *e.g.*, in September versus October.
+There are no recommended data splits in our data set, since our data set is parsed and collected into one file. We chose to parse and collect the variables in our data set together in one script to make all the information quickly accessible. We think this is no problem mainly because of the following reason. Huizenzoeker.nl updates its content each month automatically. The structure and the URLs stay exactly the same, yet, the statistical numbers change per month. We designed our code in a way that it captures every number that is present at the moment, regardless of whether we run it, *e.g.*, in September versus October.
 
  \ 
 
@@ -161,9 +172,9 @@ There are no recommended data splits in our dataset, since our dataset is parsed
 
 Huizenzoeker.nl states that, for over 10 years, they have made every effort possible to ensure that this website functions properly and is kept permanently accessible for reputational reasons. Huizenzoeker.nl edits the information offered on its site with the greatest possible care and devotes the same care to the composition of the site. However, it legally cannot guarantee the correctness and completeness of the data shown as a result of imperfections that may occur. Moreover, Huizenzoeker is able to adapt the website where and whenever they please. No restrictions hold. This information has been retrieved from the [disclaimer](https://www.huizenzoeker.nl/over-ons/disclaimer/) section on the Huizenzoeker.nl website.
 
-#### b) are there official arhival versions of the complete datasets (i.e. including the external resources as they existed at the time the dataset was created).
+#### b) are there official arhival versions of the complete datasets (*i.e.* including the external resources as they existed at the time the dataset was created).
 
-Possibly for own utilization. However, no official archival versions of the complete datasets are available to us as the public of Huizenzoeker.nl. Huizenzoeker.nl displays real-time monthly data, and not so much archival data for the data we scrape to answer our research objective (there is for instance data on the 'prijsontwikkelingen' over the last couple of years, which means data for the previous years must be available too). The data we scrape from the municipality pages is data that is updated every month, so when scraping this page you do not get direct access to the figures or averages for the previous months. 
+Possibly for own utilization. However, no official archival versions of the complete data sets are available to us as the public of Huizenzoeker.nl. Huizenzoeker.nl displays real-time monthly data, and not so much archival data for the data we scrape to answer our research objective (there is for instance data on the 'prijsontwikkelingen' over the last couple of years, which means data for the previous years must be available too). The data we scrape from the municipality pages is data that is updated every month, so when scraping this page you do not get direct access to the figures or averages for the previous months. 
 
 #### c) are there any restrictions (e.g., licenses, fees) associated with any of the external resources that might apply to a future user? 
 
@@ -195,15 +206,15 @@ Our dataset does not relate to sub populations, as we scrape houses and not peop
 
  \ 
 
-#### 2.14 Is it possible to identify individuals (i.e., one or more natural persons), either directly or indirectly (i.e., in combination with other data) from the dataset? 
+#### 2.14 Is it possible to identify individuals (*i.e.*, one or more natural persons), either directly or indirectly (*i.e.*, in combination with other data) from the dataset? 
 
-This question is not applicable to our dataset. 
+This question is not applicable to our data set. 
 
  \ 
 
 #### 2.15 Does the dataset contain data that might be considered sensitive in any way (e.g. data that reveals racial or ethnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)?
 
-This question is not applicable to our dataset. 
+This question is not applicable to our data set. 
 
  \ 
 
@@ -215,9 +226,9 @@ This question is not applicable to our dataset.
 
 Via the selenium package we accessed ChromeDriverManager. Using this webdriver we scraped all the possible municipality URLs for the entire Huizenzoeker website. 
 
-The next step was to extract all the variables desribed in question 2.8. One code has been created for this step. At the beginning of this code, we made sure all the output got saved into a json file. Next, one big for-loop is created that will loop through all of the munucipality pages, making sure the code gets 5 seconds of sleep. Within the loop we loaded the BeautifulSoup package. We then defined the first variable intended identification purposes: the municipality name. These were all the steps that needed to be completed in order to scrape all the variables we wanted from the municipality pages. These variables have been created using multiple 'if' - 'else' statements, tailoring each variable to its corresponding html output that can be accessed when inspecting the municipality webpage. Furthermore, irrelevant characters/words have been dropped to enhance clarity. At the bottom of the code all the variables are appended into a list.
+The next step was to extract all the variables described in question 2.8. One code has been created for this step. At the beginning of this code, we made sure all the output got saved into a json file. Next, one big for-loop is created that will loop through all of the municipality pages, making sure the code gets 5 seconds of sleep. Within the loop we loaded the BeautifulSoup package. We then defined the first variable intended identification purposes: the municipality name. These were all the steps that needed to be completed in order to scrape all the variables we wanted from the municipality pages. These variables have been created using multiple 'if' - 'else' statements, tailoring each variable to its corresponding html output that can be accessed when inspecting the municipality webpage. Furthermore, irrelevant characters/words have been dropped to enhance clarity. At the bottom of the code all the variables are appended into a list.
 
-Using the 'pandas' package we were able to convert this list with variables into a large table (dataframe) containing all variables per municipality. This dataframe, in turn, is converted into a csv file. All the data we scraped from the Huizenzoeker platform was data that was directly observable in the form of raw text.
+Using the 'pandas' package we were able to convert this list with variables into a large table (dataframe) containing all variables per municipality. This data frame, in turn, is converted into a csv file. All the data we scraped from the Huizenzoeker platform was data that was directly observable in the form of raw text.
 
  \ 
 
@@ -245,49 +256,53 @@ In the data collection process the team members of this project were involved. I
 
 #### 3.5 Over what timeframe was the data collected? Does this timeframe match the creation timeframe of the data associated with the instances (e.g., recent crawl of old news articles)? 
 
+Huizenzoeker collects real-time data of the housing market. Namely, at the moment of writing the documentation Huizenzoeker.nl covers the data for September 2021 which is the most recent housing market data available. This too is the 
+
+
+
 Huizenzoeker.nl covers the housing market data of September 2021. This is the most recent housing market data. Huizenzoeker.nl shows this most-recent data because the housing market changes every month (e.g., houses are sold, new houses are offered, the asking price may be more extremely outbid in one month than in the other month, etc.).
 
  \ 
 
 #### 3.6 Were any ethical review processes conducted (e.g., by an institutional review board)?
 
-This question is not applicable to our dataset. 
+This question is not applicable to our data set. 
 
  \ 
 
 #### 3.7 Does the dataset relate to people? If not, you may skip the remaining questions in this section.
 
-This question is not applicable to our dataset. 
+This question is not applicable to our data set. 
 
  \ 
 
 #### 3.8 Did you collect the data from the individuals in question directly, or obtain it via third parties or other sources (e.g., websites)?
 
-This question is not applicable to our dataset. 
+This question is not applicable to our data set. 
 
  \ 
 
 #### 3.9 Were the individuals in question notified about the data collection? 
 
-This question is not applicable to our dataset. 
+This question is not applicable to our data set. 
 
  \ 
 
 #### 3.10 Did the individuals in question consent to the collection and use of their data? 
 
-This question is not applicable to our dataset. 
+This question is not applicable to our data set. 
 
  \ 
 
 #### 3.11 If consent was obtained, were the consenting individuals provided with a mechanism to revoke their consent in the future or for certain uses? If so, please provide a description, as well as a link or other access point to the mechanism (if appropriate).
 
-This question is not applicable to our dataset. 
+This question is not applicable to our data set. 
 
  \ 
 
 #### 3.12 Has an analysis of the potential impact of the dataset and its use on data subjects (e.g., a data protection impact analysis) been conducted?
 
-This question is not applicable to our dataset.  
+This question is not applicable to our data set.  
 
  \ 
 
@@ -306,7 +321,7 @@ In addition, we use pagination to be able to scrape data on street-level. Intera
 
 #### 4.2 Was the “raw” data saved in addition to the preprocessed/cleaned/labeled data (e.g., to support unanticipated future uses)? 
 
-Yes, the raw output is being saved in a json file automatically, as part of our coding script. The json file can be accessed by running our Scraping Woningmarkt (Final Code) jupyter script. In addition, we stored our dataset locally, being able to monitor the process of our data collection process more easily (Boegershausen et al., 2021). Our data is stored in files rather than databases. The dataset is structured (*i.e.*, it is downloaded as a clean pandas Dataframe) and the code can be run on one computer (*i.e.*, the size of our dataset is not exhaustive).
+Yes, the raw output is being saved in a json file automatically, as part of our coding script. The json file can be accessed by running our Scraping Woningmarkt (Final Code) jupyter script. In addition, we stored our dataset locally, being able to monitor the process of our data collection process more easily (Boegershausen et al., 2021). Our data is stored in files rather than databases. The data set is structured (*i.e.*, it is downloaded as a clean pandas Dataframe) and the code can be run on one computer (*i.e.*, the size of our data set is not exhaustive).
 
  \ 
  
@@ -315,7 +330,7 @@ Yes, the raw output is being saved in a json file automatically, as part of our 
 
 We decided to use self-developed code that interfaces with high-level scraping libraries (e.g. Selenium and BeautifulSoup), as a software tool for data extraction. We did not choose to use a ready-made scraping toolkit like Monzenda, or packages that only require some coding like Scrapy for Python, as for the complexity of our data collection the self-developed code method seemed the most desirable. Developing the code ourselves in Python required quite some time and effort, however in the end it is a better way to actively manage the data quality and reproductibility than through the other methods. 
 
-After preprocessing, cleaning, and labelling the data in Python, we exported the dataset to RStudio where we transformed the dataset into one ready for analysis. Python and Rstudio, and the libraries Selenium and BeautifulSoup are all publically available. So, together with our code, you can replicate our scraping efforts easily.
+After pre-processing, cleaning, and labeling the data in Python, we exported the dataset to RStudio where we transformed the data set into one ready for analysis. Python and Rstudio, and the libraries Selenium and BeautifulSoup are all publicly available. So, together with our code, you can replicate our scraping efforts easily.
 
  \ 
 
@@ -377,7 +392,7 @@ final_map <- left_join(NLD_f, names_and_numbers, by = "id")
 ```
 
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, fig.align='center'}
 
 ggplot(final_map) +
   theme_minimal() +
@@ -405,33 +420,33 @@ ggplot(final_map) +
 
 #### 5.2 Is there a repository that links to any or all papers or systems that use the dataset? If so, please provide a link or other access point.
 
-There are not many (if any) papers or systems that use this dataset, so there is not really such repository. 
-On Github, we found some respositories for: 
+There are not many (if any) papers or systems that use this data set, so there is not really such repository that we can mention here. The following are some repositories on Github of projects that were the closest to our own: 
 
  * A simple python wrapper for the Huizenzoeker API (but last updated in oct 2013) = https://github.com/bpeschier/huizenzoeker
  
  * Using the Jaap API to look for rentals in Rotterdam = https://github.com/thomasvt1/HuizenZoeker
 
+Which only emphasizes the need and potential for such a scraper and the added value it may have, as there currently is not an data set  publicly available alike ours...
  \ 
 
 #### 5.3 What (other) tasks could the dataset be used for?
 
-Broadly speaking, a suitable task this dataset can be used for is helping (future) inhabitants of the Netherlands find their ideal home. By accessing our data, a person could find the best municipality to live in for this person's specific circumstances (e.g. specific disposable income level), find a region where the value-for-money seems to be of high standard, to help them in negotiations on the price, to help them find out what is the norm in terms of overbidding for each municipality, and more.
+Broadly speaking, a suitable task this data set can be used for is helping (future) inhabitants of the Netherlands find their ideal home. By accessing our data, a person could find the best municipality to live in for this person's specific circumstances (e.g. specific disposable income level), find a region where the value-for-money seems to be of high standard, to help them in negotiations on the price, to help them find out what is the norm in terms of overbidding for each municipality, and more.
 
  \ 
 
-#### 5.4 Is there anything about the composition of the dataset or the way it was collected and preprocessed/cleaned/labeled that might impact future uses?
+#### 5.4 Is there anything about the composition of the data set or the way it was collected and preprocessed/cleaned/labeled that might impact future uses?
 
-The only harms that could be done in the case of Huizenzoeker relates to financial harms, e.g. when one is misinformed about housing prices due to our dataset. 
+The only harms that could be done in the case of Huizenzoeker relates to financial harms, e.g. when one is misinformed about housing prices due to our data set. 
 
 However, as long as Huizenzoeker does not incur drastic changes, no undesirable harms will arise. *also when there would be drastic changes on Huizenzoeker.nl then our code likely won't work anymore so in that case our scraper won't result in undesirable harms either, but just won't work) 
 
-Future users of the dataset could decide to implement more variables, or kick certain variables out. As long as this is done following the same steps as in our coding script, no harm can be done. 
+Future users of the data set could decide to implement more variables, or kick certain variables out. As long as this is done following the same steps as in our coding script, no harm can be done. 
 
  \ 
 
 #### 5.5 Are there tasks for which the dataset should not be used? If so, please provide a description.
 
-The dataset can be used for any matters regarding the housing market in the Netherlands, at municipality level as well as province level. For anything outside of this topic, the dataset has no use.
+The data set can be used for any matters regarding the housing market in the Netherlands, at municipality-, province-, as well as street-level. For anything outside of this topic, the data set has no use.
 
  \

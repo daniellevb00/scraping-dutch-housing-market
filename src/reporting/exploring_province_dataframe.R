@@ -7,11 +7,12 @@
 ## Loading packages and data 
 library(readr)
 library(dplyr)
-huizenzoeker1 <- read_csv("huizenzoeker_province_data.csv")
+huizenzoeker1 <- read_csv('../../data/huizenzoeker_province_data.csv')
 huizenzoeker1<-huizenzoeker1[2:14] #delete the first row with indices (not needed)
 View(huizenzoeker1)
 summary(huizenzoeker1)
 head(huizenzoeker1)
+#If encoding does not translate well: use € = euro sign, and Δ = capital delta
 
 ## 1: Transforming data
 #Correcting classes

@@ -7,26 +7,27 @@
 ## Loading packages and data 
 library(readr)
 library(dplyr)
-huizenzoeker <- read_csv("huizenzoeker_scraper_data.csv")
+huizenzoeker <- read_csv('../../data/huizenzoeker_scraper_data.csv')
 huizenzoeker<-huizenzoeker[2:15] #delete the first row with indices (not needed)
 View(huizenzoeker)
 summary(huizenzoeker)
 head(huizenzoeker)
+#If the encoding does not translate well: £á = euro sign, £G = capital delta
 
 ## 1: Transforming data
 #Correcting classes
 sapply(huizenzoeker,class) #most of the columns' values are seen as characters, while they should be numeric. 
 
-huizenzoeker$province<-huizenzoeker$Province
-huizenzoeker$city<-huizenzoeker$City
+huizenzoeker$provincie<-huizenzoeker$Provincie
+huizenzoeker$stad<-huizenzoeker$Stad
 
 # QUADRANT 1
 #Gemiddelde vraagprijs column
-huizenzoeker$gem_vraagprijs<-gsub('[â‚¬]','', huizenzoeker$'Gem. vraagprijs') #rename column and remove euro signs
+huizenzoeker$gem_vraagprijs<-gsub('[£á]','', huizenzoeker$'Gem. vraagprijs') #rename column and remove euro signs
 huizenzoeker$gem_vraagprijs<-parse_number(huizenzoeker$gem_vraagprijs) #make values numeric
 huizenzoeker$gem_vraagprijs<-as.numeric(huizenzoeker$gem_vraagprijs)
 #Perc verandering vraagprijs column 
-huizenzoeker$perc_ver_vraagprijs<-gsub('[%]','',huizenzoeker$'%Î” Vraagprijs (t.o.v vorige maand)') #rename column and remove %
+huizenzoeker$perc_ver_vraagprijs<-gsub('[%]','',huizenzoeker$'%£G Vraagprijs (t.o.v vorige maand)') #rename column and remove %
 huizenzoeker$perc_ver_vraagprijs<-parse_number(huizenzoeker$perc_ver_vraagprijs) #make values numeric
 huizenzoeker$perc_ver_vraagprijs<-as.numeric(huizenzoeker$perc_ver_vraagprijs)
 
@@ -35,17 +36,17 @@ huizenzoeker$perc_ver_vraagprijs<-as.numeric(huizenzoeker$perc_ver_vraagprijs)
 huizenzoeker$verk_woningen<-huizenzoeker$'Verkochte woningen' 
 huizenzoeker$verk_woningen<-as.numeric(huizenzoeker$verk_woningen)
 #Perc verandering verkochte woningen column 
-huizenzoeker$perc_ver_verkocht<-gsub('[%]','',huizenzoeker$'%Î” Verkochte woningen (t.o.v vorige maand)')
+huizenzoeker$perc_ver_verkocht<-gsub('[%]','',huizenzoeker$'%£G Verkochte woningen (t.o.v vorige maand)')
 huizenzoeker$perc_ver_verkocht<-parse_number(huizenzoeker$perc_ver_verkocht)
 huizenzoeker$perc_ver_verkocht<-as.numeric(huizenzoeker$perc_ver_verkocht)
 
 # QUADRANT 3
 #Gemiddelde m2 prijs column
-huizenzoeker$gem_m2prijs<-gsub('[â‚¬]','', huizenzoeker$'Gem. m2 prijs') 
+huizenzoeker$gem_m2prijs<-gsub('[£á]','', huizenzoeker$'Gem. m2 prijs') 
 huizenzoeker$gem_m2prijs<-parse_number(huizenzoeker$gem_m2prijs)
 huizenzoeker$gem_m2prijs<-as.numeric(huizenzoeker$gem_m2prijs)
 #Perc verandering gemiddelde m2 prijs column
-huizenzoeker$perc_ver_m2prijs<-gsub('[%]','',huizenzoeker$'%Î” M2 prijs (t.o.v vorige maand)')
+huizenzoeker$perc_ver_m2prijs<-gsub('[%]','',huizenzoeker$'%£G m2 prijs (t.o.v vorige maand)')
 huizenzoeker$perc_ver_m2prijs<-parse_number(huizenzoeker$perc_ver_m2prijs)
 huizenzoeker$perc_ver_m2prijs<-as.numeric(huizenzoeker$perc_ver_m2prijs)
 
@@ -55,12 +56,12 @@ huizenzoeker$perc_overboden<-gsub('[%]','', huizenzoeker$'% Vraagprijs overboden
 huizenzoeker$perc_overboden<-parse_number(huizenzoeker$perc_overboden)
 huizenzoeker$perc_overboden<-as.numeric(huizenzoeker$perc_overboden)
 #Perc verandering percentage overboden column 
-huizenzoeker$perc_ver_overboden<-gsub('[%]','', huizenzoeker$'%Î” Overboden (t.o.v vorige maand)') 
+huizenzoeker$perc_ver_overboden<-gsub('[%]','', huizenzoeker$'%£G Overboden (t.o.v vorige maand)') 
 huizenzoeker$perc_ver_overboden<-parse_number(huizenzoeker$perc_ver_overboden)
 huizenzoeker$perc_ver_overboden<-as.numeric(huizenzoeker$perc_ver_overboden)
 
 # BESTEEDBAAR INKOMEN
-huizenzoeker$best_inkomen<-gsub('[â‚¬ ]','', huizenzoeker$'Besteedbaar inkomen (per huishouden)') 
+huizenzoeker$best_inkomen<-gsub('[£á]','', huizenzoeker$'Besteedbaar inkomen (per huishouden)') 
 huizenzoeker$best_inkomen<-parse_number(huizenzoeker$best_inkomen) 
 huizenzoeker$best_inkomen<-as.numeric(huizenzoeker$best_inkomen)
 
@@ -76,10 +77,10 @@ huizenzoeker$perc_pop_daling<-parse_number(huizenzoeker$perc_pop_daling)
 huizenzoeker$perc_pop_daling<-as.numeric(huizenzoeker$perc_pop_daling)
 
 #Remove the old unnecessary columns
-huizenzoeker_data2<-huizenzoeker%>%select(-c('Province', 'City', 'Gem. vraagprijs','%Î” Vraagprijs (t.o.v vorige maand)', 'Verkochte woningen','%Î” Verkochte woningen (t.o.v vorige maand)','Gem. m2 prijs','%Î” M2 prijs (t.o.v vorige maand)','% Vraagprijs overboden','%Î” Overboden (t.o.v vorige maand)','Besteedbaar inkomen (per huishouden)', '% Populatie stijging','% Populatie daling', 'Aantal inwoners'))
+huizenzoeker_data2<-huizenzoeker%>%select(-c('Provincie', 'Stad', 'Gem. vraagprijs','%£G Vraagprijs (t.o.v vorige maand)', 'Verkochte woningen','%£G Verkochte woningen (t.o.v vorige maand)','Gem. m2 prijs','%£G m2 prijs (t.o.v vorige maand)','% Vraagprijs overboden','%£G Overboden (t.o.v vorige maand)','Besteedbaar inkomen (per huishouden)', '% Populatie stijging','% Populatie daling', 'Aantal inwoners'))
 #Explore summary statistics dataset
 View(huizenzoeker_data2)
 summary(huizenzoeker_data2)
 
 #Convert dataset to CSV (to import into Jupyter Notebooks)
-write.csv(huizenzoeker_data2, "huizenzoeker_municipality.csv",row.names=FALSE)
+write.csv(huizenzoeker_data2, "huizenzoeker_municipality1.csv",row.names=FALSE)
