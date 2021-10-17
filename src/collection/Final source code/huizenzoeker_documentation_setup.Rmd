@@ -323,93 +323,33 @@ The dataset has not been used for scientific research yet. However, to illustrat
 
 ##### In which provice of the Netherlands are houses currently most outbid?
 
-```{r setup, echo=FALSE}
-knitr::opts_knit$set(root.dir='C:Documents/MSc_Marketing_Analytics/oDCM/scraping-dutch-housing-market/src/collection/Final source code')
-
-knitr::opts_chunk$set(root.dir='C:Documents/MSc_Marketing_Analytics/oDCM/scraping-dutch-housing-market/src/collection/Final source code')
-
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error=TRUE)
 ```
 
-```{r, echo=FALSE}
-library(readr)
-library(dplyr)
+```{r, message=FALSE, warning=FALSE}
 library(ggplot2)
 library(maps)
 library(viridis)
 library(tibble) 
 library(sp)
 library(extrafont)
+library(readr)
+library(tidyr)
+library(tinytex)
+library(dplyr)
+huizenzoeker <- read_csv("huizenzoeker_province.csv")
+```
 
-huizenzoeker <- read_csv("huizenzoeker_scraper_data.csv")
 
 
-#QUADRANT 1
-#gemiddelde vraagprijs 
-huizenzoeker$gem_vraagprijs<-huizenzoeker$'Gem. vraagprijs'
-huizenzoeker$gem_vraagprijs<-gsub('[€]','', huizenzoeker$gem_vraagprijs)
-huizenzoeker$gem_vraagprijs<-parse_number(huizenzoeker$gem_vraagprijs) 
-huizenzoeker$gem_vraagprijs<-as.numeric(huizenzoeker$gem_vraagprijs)
-#verandering 
-huizenzoeker$perc_ver_vraagprijs<-huizenzoeker$'%Δ Vraagprijs (t.o.v vorige maand)'
-huizenzoeker$perc_ver_vraagprijs<-gsub('[%]','',huizenzoeker$perc_ver_vraagprijs)
-huizenzoeker$perc_ver_vraagprijs<-parse_number(huizenzoeker$perc_ver_vraagprijs)
-huizenzoeker$perc_ver_vraagprijs<-as.numeric(huizenzoeker$perc_ver_vraagprijs)
+```{r, include=FALSE}
+NL <- map_data("world", region = "Netherlands")
+ggplot(NL, aes(x = long, y = lat)) +
+  geom_polygon(aes( group = group, fill = region))+
+  theme(legend.position = "none")
 
-#QUADRANT 2
-#verkochte woningen
-huizenzoeker$verk_woningen<-huizenzoeker$'Verkochte woningen'
-huizenzoeker$verk_woningen<-as.numeric(huizenzoeker$verk_woningen)
-#verandering
-huizenzoeker$perc_ver_verkocht<-huizenzoeker$'%Δ Verkochte woningen (t.o.v vorige maand)'
-huizenzoeker$perc_ver_verkocht<-gsub('[%]','',huizenzoeker$perc_ver_verkocht)
-huizenzoeker$perc_ver_verkocht<-parse_number(huizenzoeker$perc_ver_verkocht)
-huizenzoeker$perc_ver_verkocht<-as.numeric(huizenzoeker$perc_ver_verkocht)
-
-#QUADRANT 3
-#gemiddelde m2 prijs 
-huizenzoeker$gem_m2prijs<-gsub('[€]','', huizenzoeker$`Gem. m2 prijs`) #remove euro signs
-huizenzoeker$gem_m2prijs<-parse_number(huizenzoeker$gem_m2prijs)
-huizenzoeker$gem_m2prijs<-as.numeric(huizenzoeker$gem_m2prijs)
-#verandering
-huizenzoeker$perc_ver_m2prijs<-huizenzoeker$'%Δ M2 prijs (t.o.v vorige maand)'
-huizenzoeker$perc_ver_m2prijs<-gsub('[%]','',huizenzoeker$perc_ver_m2prijs)
-huizenzoeker$perc_ver_m2prijs<-parse_number(huizenzoeker$perc_ver_m2prijs)
-huizenzoeker$perc_ver_m2prijs<-as.numeric(huizenzoeker$perc_ver_m2prijs)
-
-#QUADRANT 4
-#percentage overboden
-huizenzoeker$perc_overboden<-gsub('[%]','', huizenzoeker$`% Vraagprijs overboden`) 
-huizenzoeker$perc_overboden<-parse_number(huizenzoeker$perc_overboden)
-huizenzoeker$perc_overboden<-as.numeric(huizenzoeker$perc_overboden)
-#verandering
-huizenzoeker$perc_ver_overboden<-huizenzoeker$'%Δ Overboden (t.o.v vorige maand)'
-huizenzoeker$perc_ver_overboden<-gsub('[%]','', huizenzoeker$perc_ver_overboden) 
-huizenzoeker$perc_ver_overboden<-parse_number(huizenzoeker$perc_ver_overboden)
-huizenzoeker$perc_ver_overboden<-as.numeric(huizenzoeker$perc_ver_overboden)
-
-#BESTEEDBAAR INKOMEN
-huizenzoeker$best_inkomen<-gsub('[€ ]','', huizenzoeker$'Besteedbaar inkomen (per huishouden)') #remove euro signs
-huizenzoeker$best_inkomen<-parse_number(huizenzoeker$best_inkomen) #UPDATE: HERE NOW RETURNS ERROR: 3 PARSING FAILURES: because here are NA's
-huizenzoeker$best_inkomen<-as.numeric(huizenzoeker$best_inkomen)
-
-#INWONERS
-#aantal inwoners
-huizenzoeker$n_inwoners<-huizenzoeker$'Aantal inwoners'
-#populatie stijging/daling
-huizenzoeker$perc_pop_stijging<-huizenzoeker$'% Populatie stijging'
-huizenzoeker$perc_pop_stijging<-gsub('[%]','', huizenzoeker$perc_pop_stijging) 
-huizenzoeker$perc_pop_stijging<-parse_number(huizenzoeker$perc_pop_stijging)
-huizenzoeker$perc_pop_stijging<-as.numeric(huizenzoeker$perc_pop_stijging)
-huizenzoeker$perc_pop_daling<-huizenzoeker$'% Populatie daling'
-huizenzoeker$perc_pop_daling<-gsub('[%]','', huizenzoeker$perc_pop_daling) 
-huizenzoeker$perc_pop_daling<-parse_number(huizenzoeker$perc_pop_daling)
-huizenzoeker$perc_pop_daling<-as.numeric(huizenzoeker$perc_pop_daling)
-
-#now we remove the old columns that we don't need anymore
-huizenzoeker_data2<-huizenzoeker%>%select(-c('Gem. vraagprijs','%Δ Vraagprijs (t.o.v vorige maand)', 'Verkochte woningen','%Δ Verkochte woningen (t.o.v vorige maand)','Gem. m2 prijs','%Δ M2 prijs (t.o.v vorige maand)','% Vraagprijs overboden','%Δ Overboden (t.o.v vorige maand)','Besteedbaar inkomen (per huishouden)', '% Populatie stijging','% Populatie daling', 'Aantal inwoners'))
-
-##### Plot 1: outbidding percentage in Dutch provinces
-NLD <- readRDS("gadm36_NLD_1_sp (1).rds")
+NLD <- readRDS("gadm36_NLD_2_sp.rds")
 NLD_data <- NLD@data
 plot(NLD)
 
@@ -425,16 +365,20 @@ NLD_f<- fortify(NLD)
 
 names_and_numbers <- data_frame(id=rownames(NLD_data),
                                 Province=NLD_data$NAME_1) %>% 
-  left_join(huizenzoeker_province_data1, by = "Province")
+  left_join(huizenzoeker, by = "Province")
 
 final_map <- left_join(NLD_f, names_and_numbers, by = "id") 
+```
+
+
+```{r, message=FALSE, warning=FALSE}
 
 ggplot(final_map) +
   theme_minimal() +
   geom_polygon(aes(x = long, y = lat, group = group, fill= perc_overboden)) +
-  labs(x="", y="", title="Dutch Housing Crisis: Which Areas Are Most Outbid?",
-       subtitle = "Concerning Provinces in the Netherlands") +
-  theme(axis.title.x=element_blank(),
+  labs(x="", y="", title="Percentage van de vraagprijs overboden") +
+  theme(plot.title = element_text(hjust = 0.5,size=15),
+        axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
         axis.title.y=element_blank(),
@@ -442,7 +386,7 @@ ggplot(final_map) +
         axis.ticks.y=element_blank(),
         legend.position = "bottom") +
   coord_map()+
-  scale_fill_distiller(name = "% outbid", 
+  scale_fill_distiller(name = "% overboden", 
                        palette = "Reds",
                        direction = 1) +
   theme(legend.position = "right",
